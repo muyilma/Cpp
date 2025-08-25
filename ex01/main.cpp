@@ -1,41 +1,58 @@
-#include "user.hpp"
+#include "Contact.hpp"
 #include <cstdlib> 
 
 void clear_screen() {
     std::cout << "\033[2J\033[1;1H";
 }
    
-void input_user_info(contact user[8])
+void error_handle_long(std::string nbr)
 {
+    (void)nbr;
+}
+void input_user_info(Contact user[8])
+{
+    std::string str;
+    long nbr;
+    
     std::cout << "First Name:";
-    std::cin >> user[0].name;
-
+    std::cin >> str;
+    user[0].setName(str);
+    
     std::cout << "Surname:";
-    std::cin >> user[0].surName;
+    std::cin >> str;
+    user[0].setSurName(str);
 
     std::cout << "nickname:";
-    std::cin >> user[0].nickName;
-
+    std::cin >> str;
+    user[0].setNickName(str);
+    
     std::cout << "Phone Number:";
-    std::cin >> user[0].phoneNumber;
+    std::cin >> str;
+    error_handle_long(str);
+    user[0].setPhoneNumber(str);
 
     std::cout << "Dark Secret İnfo:";
-    std::cin >> user[0].Secret;
+    std::cin >> str;
+    user[0].setSecret(str);
 }
 
-void find_user_info(contact user[8])
+void find_user_info(Contact user[8])
 {
-    std::cout << "First Name:" << user[0].name << std::endl;
-    std::cout << "Surname:" << user[0].surName << std::endl;
-    std::cout << "Nickname:" << user[0].nickName << std::endl;
-    std::cout << "Phone Number:" << user[0].phoneNumber << std::endl;
-    std::cout << "Dark Secret İnfo:" << user[0].Secret << std::endl;
-
+    int index=0;
+    while (index!=9)
+    {
+        std::cin >> index;
+        std::cout << "First Name:" << user[0].getName() << std::endl;
+        std::cout << "Surname:" << user[0].getSurName() << std::endl;
+        std::cout << "Nickname:" << user[0].getNickName() << std::endl;
+        std::cout << "Phone Number:" << user[0].getPhoneNumber() << std::endl;
+        std::cout << "Dark Secret İnfo:" << user[0].getSecret() << std::endl;
+    }
 }
 
 int main()
 {
-    contact user[8];
+    Contact user[8];
     std::string name="";
     
     while (1)
@@ -51,6 +68,6 @@ int main()
         else
             std::cout << "Wrong input!!!" << name << std::endl;
 
-            clear_screen();
+        clear_screen();
     }
 }
