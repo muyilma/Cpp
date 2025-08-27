@@ -2,7 +2,7 @@ NAME=phonebook
 
 CXX = c++
 CXXFLAGS = -std=c++98
-SRC = main.cpp
+SRC = main.cpp 
 OBJS = $(SRC:.cpp=.o)
 
 all: $(NAME)

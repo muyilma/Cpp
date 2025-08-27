@@ -13,16 +13,17 @@ class Contact
         std::string phoneNumber;
         std::string Secret;
     public:
-        void setName(std::string ipt){name=ipt;}
-        void setSurName(std::string ipt){surName=ipt;}
-        void setNickName(std::string ipt){nickName=ipt;}
-        void setPhoneNumber(std::string ipt){phoneNumber=ipt;}
-        void setSecret(std::string ipt){Secret=ipt;}
-        std::string getName(){return name;}
-        std::string getSurName(){return surName;}
-        std::string getNickName(){return nickName;}
-        std::string getPhoneNumber(){return phoneNumber;}
-        std::string getSecret(){return Secret;}
+        void setName(std::string ipt);
+        void setSurName(std::string ipt);
+        void setNickName(std::string ipt);
+        void setPhoneNumber(std::string ipt);
+        void setSecret(std::string ipt);
+        std::string getName();
+        std::string getSurName();
+        std::string getNickName();
+        std::string getPhoneNumber();
+        std::string getSecret();
+
 };
 
 #endif 
