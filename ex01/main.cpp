@@ -14,35 +14,39 @@ std::string Contact::getNickName() { return nickName; }
 std::string Contact::getPhoneNumber() { return phoneNumber; }
 std::string Contact::getSecret() { return Secret; }
 
+int error_handle_long(std::string nbr)
+{
+    for (int i = 0; nbr[i]; i++)
+    {
+        if (!(nbr[i]>='0' && nbr[i]<='9'))
+            return 0;
+    }
+    return 1;
+}
+
 void PhoneBook::SearchUser(Contact user[8])
 {
-    int number = 0;
-    while (number != 9)
+    std::string number="0";
+    while (number != "9")
     {
-        std::cin >> number;
-        if (number == 9)
+        std::cout << "Search İndex:";
+        if (!std::getline(std::cin,number))
+            exit(1);
+        if(!error_handle_long(number))
+        {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n'); 
+            continue;
+        }
+        if (number == "9")
             break;
-        std::cout << "First Name:" << user[number].getName() << std::endl;
-        std::cout << "Surname:" << user[number].getSurName() << std::endl;
-        std::cout << "Nickname:" << user[number].getNickName() << std::endl;
-        std::cout << "Phone Number:" << user[number].getPhoneNumber() << std::endl;
-        std::cout << "Dark Secret İnfo:" << user[number].getSecret() << std::endl;
+        std::cout << "First Name:" << user[atoi(number.c_str())].getName() << std::endl;
+        std::cout << "Surname:" << user[ atoi(number.c_str())].getSurName() << std::endl;
+        std::cout << "Nickname:" << user[ atoi(number.c_str())].getNickName() << std::endl;
+        std::cout << "Phone Number:" << user[ atoi(number.c_str())].getPhoneNumber() << std::endl;
+        std::cout << "Dark Secret İnfo:" << user[ atoi(number.c_str())].getSecret() << std::endl;
     }
 }
-
-
-void clear_screen()
-{
-    std::cout << "[H[2J[3J";
-}
-
-void error_handle_long(std::string nbr)
-{
-    (void)nbr;
-}
-
-
-
 
 void PhoneBook::UserAdd(Contact user[8], int *i)
 {
@@ -60,19 +64,33 @@ void PhoneBook::UserAdd(Contact user[8], int *i)
     std::cin >> str;
     user[*i].setNickName(str);
 
-    std::cout << "Phone Number:";
-    std::cin >> str;
-    error_handle_long(str);
-    user[*i].setPhoneNumber(str);
-
+    while (1)
+    {
+        std::cout << "Phone Number:";
+        std::cin >> str;
+        if (error_handle_long(str))
+        {
+            user[*i].setPhoneNumber(str);
+            break;
+        }
+        std::cout << "is not digit\n";
+    }
+    
+    
     std::cout << "Dark Secret İnfo:";
     std::cin >> str;
     user[*i].setSecret(str);
-
     (*i)++;
     if (*i == 8)
         *i = 0;
 }
+
+void clear_screen()
+{
+    std::cout << "[H[2J[3J";
+}
+
+
 
 int main()
 {
@@ -83,7 +101,7 @@ int main()
     while (1)
     {
         std::cout << "ADD    SEARCH     EXIT\n";
-        if (!(std::cin >> name))
+        if (!std::getline(std::cin,name))
             break;
         if (name == "ADD")
             cont.UserAdd(cont.getUser(),&i);
