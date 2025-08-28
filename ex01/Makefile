@@ -1,7 +1,7 @@
 NAME=phonebook
 
 CXX = c++
-CXXFLAGS = -std=c++98 -g
+CXXFLAGS =-Wall -Wextra -Werror -std=c++98 -g #-g yi sil
 SRC = main.cpp 
 OBJS = $(SRC:.cpp=.o)
 
