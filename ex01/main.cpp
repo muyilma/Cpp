@@ -25,30 +25,41 @@ int error_handle_long(std::string nbr)
     {
         if (!(nbr[i] >= '0' && nbr[i] <= '9'))
             return 0;
+    }
+    return 1;
+}
+
+int error_handle_search(std::string nbr)
+{
+    for (int i = 0; nbr[i]; i++)
+    {
+        if (!(nbr[i] > '0' && nbr[i] <= '9'))
+            return 0;
         if (i == 1)
             return 0;
     }
     return 1;
 }
-
 void PhoneBook::SearchUser(Contact user[8])
 {
     std::string number = "-1";
+    int index=-1;
+
     while (number != "9")
     {
         std::cout << "Search İndex:";
         if (!std::getline(std::cin, number))
             exit(1);
-        if (!error_handle_long(number))
+        if (number.empty() || !error_handle_search(number))
             continue;
-        ;
+        index=atoi(number.c_str()) - 1;    
         if (number == "9")
             break;
-        std::cout << "First Name:" << user[atoi(number.c_str())].getName() << std::endl;
-        std::cout << "Surname:" << user[atoi(number.c_str())].getSurName() << std::endl;
-        std::cout << "Nickname:" << user[atoi(number.c_str())].getNickName() << std::endl;
-        std::cout << "Phone Number:" << user[atoi(number.c_str())].getPhoneNumber() << std::endl;
-        std::cout << "Dark Secret İnfo:" << user[atoi(number.c_str())].getSecret() << std::endl;
+        std::cout << "First Name:" << user[index].getName() << std::endl;
+        std::cout << "Surname:" << user[index].getSurName() << std::endl;
+        std::cout << "Nickname:" << user[index].getNickName() << std::endl;
+        std::cout << "Phone Number:" << user[index].getPhoneNumber() << std::endl;
+        std::cout << "Dark Secret İnfo:" << user[index].getSecret() << std::endl;
     }
 }
 
@@ -110,8 +121,8 @@ int main()
         {
             clear_screen();
             std::cout << "Wrong input!!!  " << name << std::endl;
-            exit(1);
+            continue;
         }
         clear_screen();
     }
-}
+}   
