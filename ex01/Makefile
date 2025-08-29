@@ -10,6 +10,10 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	c++  -o $(NAME) $(CXXFLAGS) $(OBJS) 
 
+run: $(NAME)
+	clear
+	./phonebook
+
 clean:
 	rm -rf $(OBJS)
 	
