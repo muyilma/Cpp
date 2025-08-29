@@ -1,8 +1,8 @@
-NAME=phonebook
+NAME=Account
 
 CXX = c++
-CXXFLAGS =-Wall -Wextra -Werror -std=c++98 -g #-g yi sil
-SRC = main.cpp Contact.cpp
+CXXFLAGS =-std=c++98 -g
+SRC = Account.cpp tests.cpp
 OBJS = $(SRC:.cpp=.o)
 
 all: $(NAME)
