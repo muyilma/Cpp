@@ -1,9 +1,21 @@
 #include "Account.hpp"
 #include <iostream>
 
-int main()
+int Account::_nbAccounts=0;
+int Account::_totalAmount=0;
+int Account::_totalNbDeposits=0;
+int Account::_totalNbWithdrawals=0;
+
+void Account::displayAccountsInfos()
 {
-    Account a(7);
-    
-    std::cout <<  a.getTotalAmount(); 
+    std::cout << "  a";
+}
+Account::Account(int initial_deposit)
+{
+    std::cout << "  a";
+}
+
+Account::~Account()
+{
+    std::cout << "  a";
 }
