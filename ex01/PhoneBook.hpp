@@ -14,5 +14,7 @@ class PhoneBook
         void UserAdd(Contact user[8],int *i);
         void SearchUser(Contact user[8]);
 };
+
 void clear_screen();
+
 #endif 

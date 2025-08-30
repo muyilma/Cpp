@@ -6,7 +6,6 @@ OBJS = megaphone.o
 
 all: $(NAME)
 
-
 $(NAME): $(OBJS)
 	c++  -o $(NAME) $(CXXFLAGS) $(OBJS) 
 
@@ -15,3 +14,5 @@ clean:
 	
 fclean: clean
 	rm -rf $(NAME)
+
+re: fclean all

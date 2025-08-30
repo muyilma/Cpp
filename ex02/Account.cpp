@@ -22,6 +22,7 @@ void Account::displayAccountsInfos()
             << ";withdrawals:" << getNbWithdrawals() 
             << std::endl;
 }
+
 Account::Account(int initial_deposit)
 {
     _displayTimestamp();
@@ -52,7 +53,6 @@ bool Account::makeWithdrawal(int withdrawal)
                 << ";amount:" << checkAmount()
                 << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
     }
-
     return checkAmount();
 }
 
