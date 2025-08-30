@@ -18,6 +18,7 @@ std::string Contact::getSecret() { return Secret; }
 std::string print(std::string str)
 {
     std::string newstr = "";
+    
     if (str.empty())
         return "";
     if (str.size() <= 10)
@@ -92,11 +93,23 @@ int user_check(Contact user)
     return 1;
 }
 
+int str_empty(std::string str)
+{
+    int i=0;
+    while (str[i])
+    {
+        if (str[i]!=' ')
+            return 0;
+        i++;
+    }
+    return 1;
+}
+
 std::string read_terminal(std::string str_out)
 {
     std::string str;
 
-    while (str.empty())
+    while (str.empty() || str_empty(str))
     {
         std::cout << str_out;
         if (!getline(std::cin, str))
@@ -104,6 +117,7 @@ std::string read_terminal(std::string str_out)
     }
     return str;
 }
+
 
 void PhoneBook::SearchUser(Contact user[8])
 {
@@ -114,13 +128,18 @@ void PhoneBook::SearchUser(Contact user[8])
     while (number != "9")
     {
         number = read_terminal("Search Index:");
+        if (number.empty() || str_empty(number))
+            std::cout << "!!Wrong Input!!\n";
         if (!error_handle_search(number))
+        {
+            std::cout << "!!Wrong Input!!\n";
             continue;
+        }
         index = atoi(number.c_str()) - 1;
         if (number == "9")
             break;
-        if (user_check(user[index]))
-            continue;
+        if (user_check(user[index])){ std::cout << "!!User nor created!!\n"; continue;}
+
         std::cout << "First Name:" << user[index].getName() << std::endl;
         std::cout << "Surname:" << user[index].getSurName() << std::endl;
         std::cout << "Nickname:" << user[index].getNickName() << std::endl;
