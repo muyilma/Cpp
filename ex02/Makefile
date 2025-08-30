@@ -12,7 +12,13 @@ $(NAME): $(OBJS)
 
 run: $(NAME)
 	clear
-	./phonebook
+	./Account
+
+diff: $(NAME)
+	clear
+	rm -rf a
+	./Account > a
+	diff a 19920104_091532.log
 
 clean:
 	rm -rf $(OBJS)
