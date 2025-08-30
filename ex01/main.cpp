@@ -1,7 +1,4 @@
-#include "Contact.hpp"
 #include "PhoneBook.hpp"
-#include <cstdlib>
-#include <iomanip>
 
 void clear_screen()
 {
@@ -28,7 +25,7 @@ int main()
         if (!std::getline(std::cin, name))
             break;
         if (name == "ADD")
-            cont.UserAdd(cont.getUser(), &i);
+            cont.UserAdd(cont.getUser(), i);
         else if (name == "SEARCH")
             cont.SearchUser(cont.getUser());
         else if (name == "EXIT")

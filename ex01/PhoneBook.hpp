@@ -11,7 +11,7 @@ class PhoneBook
         Contact user[8];
     public:
         Contact* getUser();
-        void UserAdd(Contact user[8],int *i);
+        void UserAdd(Contact user[8],int &i);
         void SearchUser(Contact user[8]);
 };
 
