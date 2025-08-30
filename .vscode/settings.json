@@ -3,6 +3,14 @@
         "array": "cpp",
         "string_view": "cpp",
         "ranges": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "string": "cpp",
+        "iomanip": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "sstream": "cpp",
+        "stdexcept": "cpp",
+        "system_error": "cpp",
+        "typeinfo": "cpp"
     }
 }

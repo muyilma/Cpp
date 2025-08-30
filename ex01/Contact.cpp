@@ -1,6 +1,4 @@
-#include "Contact.hpp"
 #include "PhoneBook.hpp"
-#include <iomanip>
 #include <cstdlib>
 
 Contact *PhoneBook::getUser() { return user; }
@@ -130,16 +128,12 @@ void PhoneBook::SearchUser(Contact user[8])
         number = read_terminal("Search Index:");
         if (number.empty() || str_empty(number))
             std::cout << "!!Wrong Input!!\n";
-        if (!error_handle_search(number))
-        {
-            std::cout << "!!Wrong Input!!\n";
-            continue;
-        }
+        if (!error_handle_search(number)) { std::cout << "!!Wrong Input!!\n"; continue; }
         index = atoi(number.c_str()) - 1;
         if (number == "9")
             break;
-        if (user_check(user[index])){ std::cout << "!!User nor created!!\n"; continue;}
-
+        if (user_check(user[index]))
+            { std::cout << "!!User nor created!!\n"; continue;}
         std::cout << "First Name:" << user[index].getName() << std::endl;
         std::cout << "Surname:" << user[index].getSurName() << std::endl;
         std::cout << "Nickname:" << user[index].getNickName() << std::endl;
@@ -148,29 +142,29 @@ void PhoneBook::SearchUser(Contact user[8])
     }
 }
 
-void PhoneBook::UserAdd(Contact user[8], int *i)
+void PhoneBook::UserAdd(Contact user[8], int &i)
 {
     std::string str;
 
     str = read_terminal("First Name:");
-    user[*i].setName(str);
+    user[i].setName(str);
     str = read_terminal("Surname:");
-    user[*i].setSurName(str);
+    user[i].setSurName(str);
     str = read_terminal("nickname:");
-    user[*i].setNickName(str);
+    user[i].setNickName(str);
     while (1)
     {
         str = read_terminal("Phone Number:");
         if (error_handle_long(str))
         {
-            user[*i].setPhoneNumber(str);
+            user[i].setPhoneNumber(str);
             break;
         }
         std::cout << "is not digit\n";
     }
     str = read_terminal("Dark Secret Info:");
-    user[*i].setSecret(str);
-    (*i)++;
-    if (*i == 8)
-        *i = 0;
+    user[i].setSecret(str);
+    (i)++;
+    if (i == 8)
+        i = 0;
 }
