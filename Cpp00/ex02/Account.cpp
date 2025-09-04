@@ -42,7 +42,10 @@ bool Account::makeWithdrawal(int withdrawal)
     std::cout << "index:" << _accountIndex
         << ";p_amount:" << checkAmount() ;
     if (checkAmount()<withdrawal)
+    {
         std::cout << ";withdrawal:refused\n";
+        return false;
+    }
     else
     {
         _amount -= withdrawal;
@@ -53,7 +56,7 @@ bool Account::makeWithdrawal(int withdrawal)
                 << ";amount:" << checkAmount()
                 << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
     }
-    return checkAmount();
+    return true;
 }
 
 void Account::displayStatus() const

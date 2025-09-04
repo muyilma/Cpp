@@ -1,18 +1,6 @@
 #include "PhoneBook.hpp"
 #include <cstdlib>
 
-Contact *PhoneBook::getUser() { return user; }
-void Contact::setName(std::string ipt) { name = ipt; }
-void Contact::setSurName(std::string ipt) { surName = ipt; }
-void Contact::setNickName(std::string ipt) { nickName = ipt; }
-void Contact::setPhoneNumber(std::string ipt) { phoneNumber = ipt; }
-void Contact::setSecret(std::string ipt) { Secret = ipt; }
-std::string Contact::getName() { return name; }
-std::string Contact::getSurName() { return surName; }
-std::string Contact::getNickName() { return nickName; }
-std::string Contact::getPhoneNumber() { return phoneNumber; }
-std::string Contact::getSecret() { return Secret; }
-
 std::string print(std::string str)
 {
     std::string newstr = "";
@@ -133,7 +121,7 @@ void PhoneBook::SearchUser(Contact user[8])
         if (number == "9")
             break;
         if (user_check(user[index]))
-            { std::cout << "!!User nor created!!\n"; continue;}
+            { std::cout << "!!User not created!!\n"; continue;}
         std::cout << "First Name:" << user[index].getName() << std::endl;
         std::cout << "Surname:" << user[index].getSurName() << std::endl;
         std::cout << "Nickname:" << user[index].getNickName() << std::endl;
