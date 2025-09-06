@@ -10,8 +10,11 @@ class Zombie
     public:
         void announce( void );
         void setName(std::string name);
+    Zombie();//olsun deöiş evo pagede
+    ~Zombie();//evo pagede gördüm yarın bir sor birilerine
 };
 
-Zombie* zombieHorde( int N, std::string name );
+Zombie* newZombie( std::string name );
+void randomChump( std::string name );
 
 #endif 
