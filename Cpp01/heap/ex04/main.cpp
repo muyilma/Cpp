@@ -20,7 +20,7 @@ std::string replace_content(std::string line,std::string s1,std::string s2)
 
     for (int i=0;line[i];i++)
     {
-        if (s1[0]==line[i] && comparison_func(i,line,s1))
+        if (s1[0]==line[i] && comparison_func(i,line,s1) )
         {
             for (int j = 0; s2[j]; j++)
                 newline+=s2[j];
@@ -39,15 +39,14 @@ int main(int argc, char const *argv[])
         std::cout << "Wrong argumant count!!!" << std::endl;
         return 0;
     }
-    
     std::ifstream infile(argv[1]);
     std::string replace=argv[1];
-    std::ofstream outfile("n.replace");
+    replace+=".replace";
+    std::ofstream outfile(replace.c_str());
     std::string s1=argv[2];
     std::string s2=argv[3];
     std::string str="";
     std::string line="";
-
     while(std::getline(infile,line))
     {
         line=replace_content(line,s1,s2);
