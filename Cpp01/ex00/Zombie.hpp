@@ -9,9 +9,8 @@ class Zombie
         std::string names;
     public:
         void announce( void );
-        void setName(std::string name);
-    Zombie();//olsun deöiş evo pagede
-    ~Zombie();//evo pagede gördüm yarın bir sor birilerine
+    Zombie(std::string name);
+    ~Zombie();
 };
 
 Zombie* newZombie( std::string name );

@@ -1,15 +1,15 @@
-Ram'deki user stage alanlarını tekrar et bir daha nir bak heap stack farkınada bir daha bak
-malloc ile new arasındaki farklara bak?
-malloc varken new'e neden ihtiyaç duyulmuş?
-new kaç kullanım şekli var?
-C'deki heap stack le c++deki aynı mı davranıyor?
-Constructer ve destructer program çalışırken nerden tutuluyor?
++++++++++++++++Ram'deki user stage alanlarını tekrar et bir daha bir bak heap stack farkınada bir daha bak
++++++++++++++++C'deki heap stack le c++deki aynı mı davranıyor?
++++++++++++++++malloc ile new arasındaki farklara bak?
++++++++++++++++malloc varken new'e neden ihtiyaç duyulmuş?
++++++++++++++++new kaç kullanım şekli var?
++++++++++++++++Constructer ve destructer program çalışırken nerden tutuluyor?
 con dest için forlu ve scoplu bir uygulama yap!!!
 free ile deletein farkı?
-delete tam olarak nedir?
 free varken neden delete ihtiyaç duyulmuş?
+delete tam olarak nedir?
 delete[] ile deleten in farkı ne?
-new Zombie[N] bu nasıl bir kullanım?
+    new Zombie[N] bu nasıl bir kullanım?
 
 referans ve pointer farkı?
 referans tam olarak nedir ?
@@ -18,3 +18,5 @@ referans kullanmassak ne olur?
 
 default Constructer nasıl bişeydir
 
+ifstream ve ofstream nedir nasıl kullanılır?
+HumanA::HumanA(std::string Cname,Weapon &Cweapon) : name(Cname) , weapon(Cweapon){}

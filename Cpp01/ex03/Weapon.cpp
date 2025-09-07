@@ -11,5 +11,5 @@ Weapon::Weapon(std::string Utype)
 
 Weapon::Weapon()
 {
-        std::cout << " " << std::endl;
+    std::cout << " " << std::endl;
 }

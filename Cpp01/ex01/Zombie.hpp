@@ -5,12 +5,13 @@
 
 class Zombie
 {
-    private://evo pagede defult constructor istiyor olmaı mı?
+    private:
         std::string names;
     public:
         void announce( void );
         void setName(std::string name);
-};
+    Zombie();
+};  
 
 Zombie* zombieHorde( int N, std::string name );
 

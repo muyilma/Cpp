@@ -7,3 +7,8 @@ void Zombie::announce()
 }
 
 void Zombie::setName(std::string name){ names=name;}
+
+Zombie::Zombie()
+{
+    //Belki içi doldurulabilir
+}

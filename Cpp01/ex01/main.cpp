@@ -8,8 +8,6 @@ int main()
     naber= zombieHorde(number,"mustafa");
     naber[3].setName("İsmail");
     for (int i = 0; i < number; i++)
-    {
         naber[i].announce();
-    }
     delete[] naber;
 }
