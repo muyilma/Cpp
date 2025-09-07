@@ -8,6 +8,7 @@ int main()
     zom->announce();
     randomChump("Lorem Amed");
     randomChump("Ahmet Kaya");
+    delete zom;
 }
 
 

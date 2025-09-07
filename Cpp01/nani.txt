@@ -1,0 +1,20 @@
+Ram'deki user stage alanlarını tekrar et bir daha nir bak heap stack farkınada bir daha bak
+malloc ile new arasındaki farklara bak?
+malloc varken new'e neden ihtiyaç duyulmuş?
+new kaç kullanım şekli var?
+C'deki heap stack le c++deki aynı mı davranıyor?
+Constructer ve destructer program çalışırken nerden tutuluyor?
+con dest için forlu ve scoplu bir uygulama yap!!!
+free ile deletein farkı?
+delete tam olarak nedir?
+free varken neden delete ihtiyaç duyulmuş?
+delete[] ile deleten in farkı ne?
+new Zombie[N] bu nasıl bir kullanım?
+
+referans ve pointer farkı?
+referans tam olarak nedir ?
+referans ramde nasıl davranıyor?
+referans kullanmassak ne olur?
+
+default Constructer nasıl bişeydir
+

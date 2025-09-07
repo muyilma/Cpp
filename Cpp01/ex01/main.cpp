@@ -11,6 +11,5 @@ int main()
     {
         naber[i].announce();
     }
-    
     delete[] naber;
 }

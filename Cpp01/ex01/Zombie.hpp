@@ -5,7 +5,7 @@
 
 class Zombie
 {
-    private:
+    private://evo pagede defult constructor istiyor olmaı mı?
         std::string names;
     public:
         void announce( void );

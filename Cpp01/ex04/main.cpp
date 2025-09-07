@@ -1,35 +1,17 @@
-#include <fstream>
 #include <iostream>
-
-int comparison_func(int i,std::string line,std::string s1)
-{
-    int count=0;
-    while (s1[count]==line[i])
-    {
-        count++;
-        i++;
-    }
-    if (s1.length()==count)
-        return 1;
-    return 0;
-}
+#include <string>
+#include <fstream>
 
 std::string replace_content(std::string line,std::string s1,std::string s2)
 {
-    std::string newline;
+    int i=0;
 
-    for (int i=0;line[i];i++)
+    while ((i=line.find(s1,i))!= std::string::npos)
     {
-        if (s1[0]==line[i] && comparison_func(i,line,s1) )
-        {
-            for (int j = 0; s2[j]; j++)
-                newline+=s2[j];
-            i+=s1.length();
-            continue;
-        }
-        newline+=line[i];
+        line=line.substr(0,i)+s2+line.substr(i+s1.length(),line.length());
+        i+=s1.length();
     }
-    return newline;
+    return line;
 }
 
 int main(int argc, char const *argv[])
@@ -45,12 +27,14 @@ int main(int argc, char const *argv[])
     std::ofstream outfile(replace.c_str());
     std::string s1=argv[2];
     std::string s2=argv[3];
-    std::string str="";
     std::string line="";
+    if (!infile)
+        return 1;
+    if (s2.empty() || s1.empty())
+        return 1;
     while(std::getline(infile,line))
     {
         line=replace_content(line,s1,s2);
-        str+=line + "\n";
+        outfile << line + "\n";
     }
-    outfile << str;
 }

@@ -2,7 +2,7 @@
 
 Zombie* newZombie( std::string name )
 {
-    Zombie *newObject;
+    Zombie *newObject;//evo pagede burada constucter kullanmamı istemiş doğru mu sor?
     newObject=new(Zombie);
     newObject->setName(name);
     return newObject;
