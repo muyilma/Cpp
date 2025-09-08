@@ -1,5 +1,5 @@
-#ifndef HUMANB
-#define HUMANB
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
 #include <string>
 #include "Waepon.hpp"

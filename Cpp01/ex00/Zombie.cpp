@@ -3,12 +3,12 @@
 
 void Zombie::announce()
 {
-    std::cout << Zombie::names << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << Zombie::name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 Zombie::~Zombie()
 {
-    std::cout << names << ":I'm die NOOOOOOO\n";
+    std::cout << name << ":I'm die NOOOOOOO\n";
 }
 
-Zombie::Zombie(std::string name){ names=name; }
+Zombie::Zombie(std::string names){ name=names; }

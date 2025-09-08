@@ -1,7 +1,7 @@
 NAME=replace
 
 CXX = c++
-CXXFLAGS =-std=c++98 -g #-Wall -Wextra -Werror 
+CXXFLAGS =-std=c++98 -Wall -Wextra -Werror 
 SRC = main.cpp 
 OBJS = $(SRC:.cpp=.o)
 

@@ -1,4 +1,4 @@
-NAME=zombie
+NAME=Weapon
 
 CXX = c++
 CXXFLAGS =-std=c++98 -Wall -Wextra -Werror 

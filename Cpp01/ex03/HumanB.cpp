@@ -4,11 +4,12 @@
 
 void HumanB::attack()
 {
-    std::cout << name << "attacks with their";
-    if (!weapon->getType().empty())
+    if (weapon){
+        std::cout << name << " attacks with their " ;
         std::cout << weapon->getType() << std::endl;
+    }
     else
-        std::cout << " " << std::endl;
+        std::cout << name << " has no weapon so "<< name <<  " running away" << std::endl;
 }
 
 void HumanB::setWeapon(Weapon &Uweapon)
@@ -19,5 +20,6 @@ void HumanB::setWeapon(Weapon &Uweapon)
 
 HumanB::HumanB(std::string Cname)
 {
+    weapon=NULL;
     name=Cname;
 }

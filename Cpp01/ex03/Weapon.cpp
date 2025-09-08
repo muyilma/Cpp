@@ -9,7 +9,3 @@ Weapon::Weapon(std::string Utype)
     type=Utype;
 }
 
-Weapon::Weapon()
-{
-    std::cout << " " << std::endl;
-}

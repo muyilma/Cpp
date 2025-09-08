@@ -1,7 +1,7 @@
 #include "Zombie.hpp"
 
-void randomChump( std::string name )
+void randomChump( std::string names )
 {
-    Zombie newClass(name);
+    Zombie newClass(names);
     newClass.announce();
 }
