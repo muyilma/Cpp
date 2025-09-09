@@ -1,0 +1,17 @@
+1-Orthodox Canonical Form nedir?
+2-implementasyon tam olarak ne anlama gelir bizim bildiğimizden farklı işlevi var mı?
+3-Her bir header'ınızı diğerlerinden bağımsız olarak kullanabilmelisiniz. Bu nedenle, ihtiyaç
+duydukları tüm dependency'leri include etmelidirler.Ancak, include guard'lar ekleyerek double
+inclusion problemini önlemelisiniz. Aksi halde, notunuz 0 olur.
+dependency nedir??double inclusion???
+4-C++ projeleri için Makefile konusunda, C'deki kuralların aynısı geçerlidir (Makefile hakkındaki Norm
+bölümüne bakın). obje için bak
+
+5-
+    ->Default constructor
+    ->Copy constructor
+    ->Copy assignment operator
+    ->Destructor
+
+Class kodunuzu iki dosyaya bölün. Header dosyası (.hpp/.h) class tanımını içerirken, source dosyası
+(.cpp) implementasyonu içerir.
