@@ -48,7 +48,8 @@
         "limits": "cpp",
         "new": "cpp",
         "numbers": "cpp",
-        "streambuf": "cpp"
+        "streambuf": "cpp",
+        "fstream": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

@@ -17,7 +17,7 @@ dependency nedir??double inclusion???
 4-C++ projeleri için Makefile konusunda, C'deki kuralların aynısı geçerlidir (Makefile hakkındaki Norm
 bölümüne bakın). obje için bak
 
-5-
+5-Kaç tane constructer çeşidi var ne bunlar kapsamlı araştır?
     ->Default constructor
     ->Copy constructor
     ->Copy assignment operator
