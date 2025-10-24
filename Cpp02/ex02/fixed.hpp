@@ -1,6 +1,8 @@
-#ifndef FIXED
-#define FIXED
+#ifndef FIXED_HPP
+#define FIXED_HPP
+
 #include <iostream>
+
 class Fixed
 {
     private:
@@ -12,9 +14,9 @@ class Fixed
         Fixed(const Fixed &obj);//const koymadım referans değilde pointer yapabilir miydim?
         Fixed(const int number);
         Fixed(const float number);
+        
         float toFloat( void ) const;
         int toInt( void ) const;
-        
         int getRawBits( void ) const;
         void setRawBits( int const raw );
         Fixed& operator=(const Fixed& copy);  

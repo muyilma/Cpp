@@ -3,34 +3,37 @@
 #include <cmath>
 
 Fixed::Fixed()
-{ 
-    number=0; 
+{
+    number = 0;
 }
+
 Fixed::~Fixed()
-{ 
-
+{
 }
 
-void Fixed::setRawBits(int const raw) { number=raw; }
-
-int Fixed::getRawBits( void ) const
+void Fixed::setRawBits(int const raw) 
 { 
-    return number; 
+    number = raw; 
+}
+
+int Fixed::getRawBits(void) const
+{
+    return number;
 }
 
 Fixed::Fixed(const Fixed &obj)
 {
-    number=obj.number;
+    number = obj.number;
 }
 
-Fixed& Fixed::operator=(const Fixed& copy) {
-    if (this != &copy) {           
-        this->number = copy.getRawBits();  
-    }
-    return *this;          
+Fixed &Fixed::operator=(const Fixed &copy)
+{
+    if (this != &copy)
+        this->number = copy.getRawBits();
+    return *this;
 }
 
-std::ostream& operator<<(std::ostream& os, const Fixed& obj) 
+std::ostream &operator<<(std::ostream &os, const Fixed &obj)
 {
     os << obj.toFloat();
     return os;
@@ -38,110 +41,109 @@ std::ostream& operator<<(std::ostream& os, const Fixed& obj)
 
 Fixed::Fixed(const int number)
 {
-    this->number=number << bitNumber ;
+    this->number = number << bitNumber;
 }
 
 Fixed::Fixed(const float number)
 {
-    this->number=roundf(number *(1<< bitNumber));
+    this->number = roundf(number * (1 << bitNumber));
 }
 
-float Fixed::toFloat( void ) const
+float Fixed::toFloat(void) const
 {
     return (float)this->number / (1 << this->bitNumber);
 }
 
-int Fixed::toInt( void ) const
+int Fixed::toInt(void) const
 {
-        return this->number >> this->bitNumber;
+    return this->number >> this->bitNumber;
 }
 
-bool Fixed::operator>(const Fixed& other) const
+bool Fixed::operator>(const Fixed &other) const
 {
-	return (this->number > other.number);
+    return (this->number > other.number);
 }
 
-bool Fixed::operator<(const Fixed& other) const
+bool Fixed::operator<(const Fixed &other) const
 {
-	return (number < other.number);
+    return (number < other.number);
 }
 
-bool Fixed::operator>=(const Fixed& other) const
+bool Fixed::operator>=(const Fixed &other) const
 {
     return (number >= other.number);
 }
 
-bool Fixed::operator<=(const Fixed& other) const
+bool Fixed::operator<=(const Fixed &other) const
 {
     return (number <= other.number);
 }
 
-bool Fixed::operator==(const Fixed& other) const
+bool Fixed::operator==(const Fixed &other) const
 {
     return (number == other.number);
 }
 
-bool Fixed::operator!=(const Fixed& other) const
+bool Fixed::operator!=(const Fixed &other) const
 {
     return (number != other.number);
 }
 
-Fixed Fixed::operator+(const Fixed& copy)
+Fixed Fixed::operator+(const Fixed &copy)
 {
-    return Fixed(toFloat()+copy.toFloat());
+    return Fixed(toFloat() + copy.toFloat());
 }
 
-
-Fixed Fixed::operator-(const Fixed& copy)
+Fixed Fixed::operator-(const Fixed &copy)
 {
-    return Fixed(toFloat()-copy.toFloat());
+    return Fixed(toFloat() - copy.toFloat());
 }
 
-Fixed Fixed::operator*(const Fixed& copy)
+Fixed Fixed::operator*(const Fixed &copy)
 {
-    return Fixed(toFloat()*copy.toFloat());
+    return Fixed(toFloat() * copy.toFloat());
 }
 
-Fixed Fixed::operator/(const Fixed& copy)
+Fixed Fixed::operator/(const Fixed &copy)
 {
-    return Fixed(toFloat()/copy.toFloat());
+    return Fixed(toFloat() / copy.toFloat());
 }
 
-Fixed& Fixed::min(Fixed& a, Fixed& b)
+Fixed &Fixed::min(Fixed &a, Fixed &b)
 {
-    if (a<b)
+    if (a < b)
         return a;
     return b;
 }
 
-Fixed& Fixed::max(Fixed& a, Fixed& b)
+Fixed &Fixed::max(Fixed &a, Fixed &b)
 {
-    if (a>b)
+    if (a > b)
         return a;
     return b;
 }
 
-const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
 {
-    if (a<b)
+    if (a < b)
         return a;
     return b;
 }
 
-const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
-    if (a>b)
+    if (a > b)
         return a;
     return b;
 }
 
-Fixed& Fixed::operator++()
+Fixed &Fixed::operator++()
 {
     number++;
     return *this;
 }
 
-Fixed& Fixed::operator--()
+Fixed &Fixed::operator--()
 {
     number--;
     return *this;
@@ -154,7 +156,6 @@ Fixed Fixed::operator++(int)
     number++;
     return temp;
 }
-
 
 Fixed Fixed::operator--(int)
 {
