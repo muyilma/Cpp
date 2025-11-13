@@ -1,5 +1,4 @@
 #include "fixed.hpp"
-#include <iostream>
 
 Fixed::Fixed()
 {
@@ -12,9 +11,10 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
-void Fixed::setRawBits(int const raw)
+Fixed::Fixed(Fixed &obj)
 {
-    number = raw;
+    std::cout << "Copy constructor called" << std::endl;
+    number = obj.number;
 }
 
 int Fixed::getRawBits(void) const
@@ -23,17 +23,15 @@ int Fixed::getRawBits(void) const
     return number;
 }
 
-Fixed::Fixed(Fixed &obj)
+void Fixed::setRawBits(int const raw)
 {
-    std::cout << "Copy constructor called" << std::endl;
-    number = obj.number;
+    number = raw;
 }
 
-Fixed &Fixed::operator=(Fixed &copy)
+Fixed& Fixed::operator=(Fixed &copy)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &copy)
         number = copy.getRawBits();
     return *this;
 }
-

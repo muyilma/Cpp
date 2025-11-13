@@ -1,6 +1,8 @@
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
+#include <iostream>
+
 class Fixed
 {
     private:
@@ -9,11 +11,12 @@ class Fixed
     public:
         Fixed();
         ~Fixed();
-        Fixed(Fixed &obj);//const koymadım referans değilde pointer yapabilir miydim?
+        Fixed(const Fixed &obj);//const koymadım referans değilde pointer yapabilir miydim?evet yapabilirim *  const koyunca klasik iste sadece objemi koyalamak için kullanabiliyor başka bir şey yapamıyor.
         
         int getRawBits( void ) const;
         void setRawBits( int const raw );
         Fixed& operator=(Fixed& copy);
+
 };
 
 #endif
