@@ -28,10 +28,9 @@ void Fixed::setRawBits(int const raw)
     number = raw;
 }
 
-Fixed& Fixed::operator=(Fixed &copy)
+void Fixed::operator=(Fixed &copy)// void döndürünce zincirleme bozuluyor 1 tane
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &copy)
         number = copy.getRawBits();
-    return *this;
 }

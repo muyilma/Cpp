@@ -1,7 +1,8 @@
 ex00 yeni tanımlama şekline alıştırma projesi
-1-orthodox canonical form neyi kolaylaştırır? hangi zmanada kullaılmaya başlamış? km neden çıkarmış?
-2-Copy assignment operator overload tanımını neden opertor yazarak yapıyoruz dönüş değeri neden referans olmasa sadece zincirleme işlemi mi iptal oluyor hayla çalışabiliyor mu? this dediğimiz arkadaş tam olarak neyi işaret ediyor yada this*
-3-copy constructerın öok düz kesin bilmediğin şeyler vardır nerelerde kullnılırmış orneklerine bak.
+1-orthodox canonical form neyi kolaylaştırır? hangi zamanada kullaılmaya başlamış? kim neden çıkarmış?
+2-Copy assignment operator overload tanımını neden opertor yazarak yapıyoruz dönüş değeri neden referans olmasa sadece zincirleme işlemi mi iptal oluyor hayla çalışabiliyor mu? 
+this dediğimiz arkadaş tam olarak neyi işaret ediyor yada this*
+3-copy constructerın çok düz kesin bilmediğin şeyler vardır nerelerde kullnılırmış orneklerine bak.
 
 ex01
 1-Public constructer nedir?

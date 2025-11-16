@@ -1,0 +1,1 @@
+ex00- OCF öğrenildi. overload etme öğrenildi. Fonksiyon imzaları öğrenildi. Copy constructer neden &alamlı(loopa giriiyor yoksa).

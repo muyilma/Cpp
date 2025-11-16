@@ -11,12 +11,11 @@ class Fixed
     public:
         Fixed();
         ~Fixed();
-        Fixed(const Fixed &obj);//const koymadım referans değilde pointer yapabilir miydim?evet yapabilirim *  const koyunca klasik iste sadece objemi koyalamak için kullanabiliyor başka bir şey yapamıyor.
+        Fixed(Fixed &obj);//const koymadım referans değilde pointer yapabilir miydim?evet yapabilirim *  const koyunca klasik iste sadece objemi koyalamak için kullanabiliyor başka bir şey yapamıyor. referans koymassan loopa girer
         
         int getRawBits( void ) const;
         void setRawBits( int const raw );
-        Fixed& operator=(Fixed& copy);
-
+        void operator=(Fixed &copy);
 };
 
 #endif

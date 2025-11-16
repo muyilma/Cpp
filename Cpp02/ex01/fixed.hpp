@@ -11,7 +11,7 @@ class Fixed
     public:
         Fixed();
         ~Fixed();
-        Fixed(const Fixed &obj);//const koymadım referans değilde pointer yapabilir miydim?
+        Fixed(const Fixed &obj);
         Fixed(const int number);
         Fixed(const float number);
         
@@ -22,6 +22,6 @@ class Fixed
         Fixed& operator=(const Fixed& copy);  
 };
 
-std::ostream& operator<<(std::ostream& os, const Fixed& obj);
+std::ostream& operator<<(std::ostream& os, const Fixed& obj);// bu niye burda ammm
 
 #endif

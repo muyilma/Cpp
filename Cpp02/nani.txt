@@ -23,9 +23,6 @@ bölümüne bakın). obje için bak
     ->Copy assignment operator
     ->Destructor
 
-Class kodunuzu iki dosyaya bölün. Header dosyası (.hpp/.h) class tanımını içerirken, source dosyası
-(.cpp) implementasyonu içerir.
-
 Fiexed point
 Binary point
     Shifting
