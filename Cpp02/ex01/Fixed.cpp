@@ -1,5 +1,4 @@
-#include "fixed.hpp"
-#include <iostream>
+#include "Fixed.hpp"
 #include <cmath>
 
 Fixed::Fixed()
@@ -25,10 +24,10 @@ Fixed::Fixed(const int number)
     this->number = number << bitNumber;
 }
 
-Fixed::Fixed(const float number)
+Fixed::Fixed(const float f_number)
 {
     std::cout << "Float constructor called" << std::endl;
-    this->number = roundf(number * 256);
+    number = roundf(f_number * (1 << bitNumber));
 }
 
 void Fixed::setRawBits(int const raw)
@@ -49,7 +48,7 @@ Fixed &Fixed::operator=(const Fixed &copy)
     return *this;
 }
 
-std::ostream & Fixed::operator<<(std::ostream &os, const Fixed &obj)// Buna bi bak 
+std::ostream & operator<<(std::ostream &os, const Fixed &obj)
 {
     os << obj.toFloat();
     return os;
@@ -57,7 +56,7 @@ std::ostream & Fixed::operator<<(std::ostream &os, const Fixed &obj)// Buna bi b
 
 float Fixed::toFloat(void) const
 {
-    return (float)this->number / 256;
+    return (float)number / (1 << bitNumber);
 }
 
 int Fixed::toInt(void) const

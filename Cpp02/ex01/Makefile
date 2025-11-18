@@ -1,8 +1,8 @@
-NAME=fixed
+NAME=Fixed
 
 CXX = c++
 CXXFLAGS =-Wall -Wextra -Werror -std=c++98  
-SRC = main.cpp fixed.cpp
+SRC = main.cpp Fixed.cpp
 OBJS = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -11,6 +11,7 @@ $(NAME): $(OBJS)
 	c++  -o $(NAME) $(CXXFLAGS) $(OBJS) 
 
 run: $(NAME)
+	make clean
 	clear
 	./$(NAME)
 

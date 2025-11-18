@@ -1,4 +1,4 @@
-#include "fixed.hpp"
+#include "Fixed.hpp"
 
 Fixed::Fixed()
 {
@@ -11,7 +11,7 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed &obj)
+Fixed::Fixed(const Fixed &obj)
 {
     std::cout << "Copy constructor called" << std::endl;
     number = obj.number;
@@ -28,9 +28,10 @@ void Fixed::setRawBits(int const raw)
     number = raw;
 }
 
-void Fixed::operator=(Fixed &copy)// void döndürünce zincirleme bozuluyor 1 tane
+Fixed& Fixed::operator=(const Fixed &copy)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &copy)
         number = copy.getRawBits();
+    return *this;
 }

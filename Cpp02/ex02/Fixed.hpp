@@ -1,4 +1,4 @@
-    #ifndef FIXED_HPP
+#ifndef FIXED_HPP
 #define FIXED_HPP
 
 #include <iostream>
@@ -11,7 +11,7 @@ class Fixed
     public:
         Fixed();
         ~Fixed();
-        Fixed(const Fixed &obj);//const koymadım referans değilde pointer yapabilir miydim?
+        Fixed(const Fixed &obj);
         Fixed(const int number);
         Fixed(const float number);
         

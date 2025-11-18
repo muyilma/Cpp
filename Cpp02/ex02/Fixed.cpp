@@ -1,5 +1,4 @@
-#include "fixed.hpp"
-#include <iostream>
+#include "Fixed.hpp"
 #include <cmath>
 
 Fixed::Fixed()
@@ -91,22 +90,22 @@ bool Fixed::operator!=(const Fixed &other) const
 
 Fixed Fixed::operator+(const Fixed &copy)
 {
-    return Fixed(toFloat() + copy.toFloat());
+    return this->toFloat() + copy.toFloat();
 }
 
 Fixed Fixed::operator-(const Fixed &copy)
 {
-    return Fixed(toFloat() - copy.toFloat());
+    return this->toFloat() - copy.toFloat();
 }
 
 Fixed Fixed::operator*(const Fixed &copy)
 {
-    return Fixed(toFloat() * copy.toFloat());
+    return this->toFloat() * copy.toFloat();
 }
 
 Fixed Fixed::operator/(const Fixed &copy)
 {
-    return Fixed(toFloat() / copy.toFloat());
+    return this->toFloat() / copy.toFloat();
 }
 
 Fixed &Fixed::min(Fixed &a, Fixed &b)

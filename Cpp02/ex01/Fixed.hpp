@@ -13,7 +13,7 @@ class Fixed
         ~Fixed();
         Fixed(const Fixed &obj);
         Fixed(const int number);
-        Fixed(const float number);
+        Fixed(const float f_number);
         
         float toFloat( void ) const;
         int toInt( void ) const;
@@ -22,6 +22,6 @@ class Fixed
         Fixed& operator=(const Fixed& copy);  
 };
 
-std::ostream& operator<<(std::ostream& os, const Fixed& obj);// bu niye burda ammm
+std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 
 #endif
