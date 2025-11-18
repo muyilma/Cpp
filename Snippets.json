@@ -1,0 +1,85 @@
+{
+	"C++ Header Class Template": {
+    "prefix": "class.hpp",
+    "body": [
+      "#ifndef ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_HPP",
+      "#define ${TM_FILENAME_BASE/(.*)/${1:/upcase}/}_HPP",
+      "",
+      "class ${TM_FILENAME_BASE}",
+      "{",
+      "\tprivate:",
+      "",
+      "\tpublic:",
+      "\t\t${TM_FILENAME_BASE}();",
+      "\t\t~${TM_FILENAME_BASE}();",
+      "\t\t${TM_FILENAME_BASE}(const ${TM_FILENAME_BASE}& other);",
+      "\t\t${TM_FILENAME_BASE}& operator=(const ${TM_FILENAME_BASE}& other);",
+      "};",
+      "",
+      "#endif"
+    ],
+    "description": "C++ header file with class and guards"
+  },
+
+  	"C++ Header Class Cpp File Template": {
+    "prefix": "class.cpp",
+    "body": [
+      "#include \"${TM_FILENAME_BASE}.hpp\"",
+      "",
+      "${TM_FILENAME_BASE}::${TM_FILENAME_BASE}()",
+      "{ ",
+      "}",
+      "",
+	  "${TM_FILENAME_BASE}::${TM_FILENAME_BASE}(const ${TM_FILENAME_BASE}& other)",
+	  "{",
+    "}",
+	  "",
+      "${TM_FILENAME_BASE}::~${TM_FILENAME_BASE}()",
+      "{",
+      "}",
+	  "",
+      "${TM_FILENAME_BASE}& ${TM_FILENAME_BASE}::operator=(const ${TM_FILENAME_BASE}& other)",
+      "{",
+      "}",
+      ""
+    ],
+    "description": "C++ cpp file for header files with default constructor, copy constructor =overload and deconstructor"
+  },
+
+
+  "Getter and Setter from selection": {
+  "prefix": "getsethpp",
+  "body": [
+    "${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$1 get${2}(void) const;/}",
+    "${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/void set${2}(const $1 $2);/}"
+  ],
+  "description": "Generate getter and setter using selected 'type name' split by space"
+  },
+
+  "Getter and Setter Implementation (cpp)": {
+  "prefix": "getsetcpp",
+  "body": [
+    "${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$1/} ${TM_FILENAME_BASE}::get${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/}(void) const {",
+    "    return this->${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/};",
+    "}",
+    "",
+    "void ${TM_FILENAME_BASE}::set${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/}(const ${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$1/} ${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/}) {",
+    "    this->${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/} = ${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/};",
+    "}"
+  ],
+  "description": "Generate getter and setter implementation"
+  },
+
+  "C++ main implementation": {
+    "prefix": ".main",
+    "body": [
+      "#include \".hpp\"",
+      "",
+      "int main()",
+      "{",
+      "\t",
+      "}",
+      "",
+    ],
+  },
+}
