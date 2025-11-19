@@ -2,7 +2,7 @@
 
 int main()
 {
-    ScavTrap a;
+    ScavTrap a;//Test yaz
 
     std::cout << a.getAttackDamage() << " " << a.getEnergyPoints() << " " << a.getHitPoints() << std::endl;
     a.beRepaired(50);

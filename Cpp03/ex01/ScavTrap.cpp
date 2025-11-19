@@ -44,6 +44,16 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
     return *this;
 }
 
+ScavTrap::ScavTrap(const std::string user)
+{
+    std::cout << "ScavTrap "<< user << " create" << std::endl;
+    Name = user;
+    HitPoints = 10;
+    EnergyPoints = 10;
+    AttackDamage = 0;
+}
+
+
 ScavTrap::~ScavTrap()
 {
     std::cout << "ScavTrap Destructor called" << std::endl;

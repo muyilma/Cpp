@@ -9,6 +9,15 @@ ClapTrap::ClapTrap()
     AttackDamage = 0;
 }
 
+ClapTrap::ClapTrap(const std::string user)
+{
+    std::cout << "ClapTrap "<< user << " create" << std::endl;
+    Name = user;
+    HitPoints = 10;
+    EnergyPoints = 10;
+    AttackDamage = 0;
+}
+
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
     std::cout << "ClapTrap Copy constructor called" << std::endl;
