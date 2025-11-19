@@ -50,7 +50,7 @@
   "Getter and Setter from selection": {
   "prefix": "getsethpp",
   "body": [
-    "${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$1 get${2}(void) const;/}",
+    "${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$1 get${2}() const;/}",
     "${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/void set${2}(const $1 $2);/}"
   ],
   "description": "Generate getter and setter using selected 'type name' split by space"
@@ -59,19 +59,19 @@
   "Getter and Setter Implementation (cpp)": {
   "prefix": "getsetcpp",
   "body": [
-    "${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$1/} ${TM_FILENAME_BASE}::get${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/}(void) const {",
-    "    return this->${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/};",
+    "${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$1/} ${TM_FILENAME_BASE}::get${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/}() const {",
+    "    return ${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/};",
     "}",
     "",
     "void ${TM_FILENAME_BASE}::set${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/}(const ${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$1/} ${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/}) {",
-    "    this->${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/} = ${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/};",
+    "    ${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/} = ${TM_SELECTED_TEXT/(\\S+)\\s+(\\w+)/$2/};",
     "}"
   ],
   "description": "Generate getter and setter implementation"
   },
 
   "C++ main implementation": {
-    "prefix": ".main",
+    "prefix": "m.",
     "body": [
       "#include \".hpp\"",
       "",
