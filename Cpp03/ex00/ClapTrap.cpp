@@ -70,3 +70,15 @@ void ClapTrap::beRepaired(unsigned int amount)
     else
         std::cout << Name << " can't do anything" << std::endl;
 }
+
+int ClapTrap::getHitPoints() const {
+    return HitPoints;
+}
+
+int ClapTrap::getEnergyPoints() const {
+    return EnergyPoints;
+}
+
+int ClapTrap::getAttackDamage() const {
+    return AttackDamage;
+}

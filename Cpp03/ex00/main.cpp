@@ -24,5 +24,4 @@ int main()
     a.beRepaired(10);
     a.takeDamage(10);
     
-    
 }
