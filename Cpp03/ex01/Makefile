@@ -1,8 +1,8 @@
 NAME=ClapTrap
 
 CXX = c++
-CXXFLAGS =-Wall -Wextra -Werror -std=c++98  
-SRC = main.cpp ClapTrap.cpp
+CXXFLAGS =-std=c++98  
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJS = $(SRC:.cpp=.o)
 
 all: $(NAME)

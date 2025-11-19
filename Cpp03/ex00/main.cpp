@@ -2,26 +2,13 @@
 
 int main()
 {
-    ClapTrap a;
-
-    a.attack("enemy");
-    a.beRepaired(10);
-    a.takeDamage(10);
+    ClapTrap obj;
+    ClapTrap copyObj("mustafa");
     
-    a.attack("enemy");
-    a.beRepaired(10);
-    a.takeDamage(10);
+    obj.attack("enemy");
+    obj.beRepaired(10);
+    obj.takeDamage(10);
     
-    a.attack("enemy");
-    a.beRepaired(10);
-    a.takeDamage(10);
-    
-    a.attack("enemy");
-    a.beRepaired(10);
-    a.takeDamage(10);
-    
-    a.attack("enemy");
-    a.beRepaired(10);
-    a.takeDamage(10);
-    
+    for (int i = 0; i < 10; i++)
+        obj.attack("enemy");
 }

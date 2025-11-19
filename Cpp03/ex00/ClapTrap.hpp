@@ -13,6 +13,7 @@ class ClapTrap
     public:
         ClapTrap();
         ~ClapTrap();
+        ClapTrap(const std::string user);
         ClapTrap(const ClapTrap& other);
         ClapTrap& operator=(const ClapTrap& other);
 

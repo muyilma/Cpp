@@ -1,28 +1,11 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-    ClapTrap a;
+    ScavTrap a;
 
-    a.attack("enemy");
-    a.beRepaired(10);
-    a.takeDamage(10);
-    
-    a.attack("enemy");
-    a.beRepaired(10);
-    a.takeDamage(10);
-    
-    a.attack("enemy");
-    a.beRepaired(10);
-    a.takeDamage(10);
-    
-    a.attack("enemy");
-    a.beRepaired(10);
-    a.takeDamage(10);
-    
-    a.attack("enemy");
-    a.beRepaired(10);
-    a.takeDamage(10);
-    
-    
+    std::cout << a.getAttackDamage() << " " << a.getEnergyPoints() << " " << a.getHitPoints() << std::endl;
+    a.beRepaired(50);
+    std::cout << a.getAttackDamage() << " " << a.getEnergyPoints() << " " << a.getHitPoints() << std::endl;
+
 }

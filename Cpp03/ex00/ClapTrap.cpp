@@ -18,6 +18,15 @@ ClapTrap::ClapTrap(const ClapTrap& other)
     AttackDamage = other.AttackDamage;
 }
 
+ClapTrap::ClapTrap(const std::string user)
+{
+    std::cout << "ClapTrap "<< user << " create" << std::endl;
+    Name = user;
+    HitPoints = 10;
+    EnergyPoints = 10;
+    AttackDamage = 0;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap Destructor called" << std::endl;
@@ -50,7 +59,7 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (EnergyPoints > 0 && HitPoints > 0)
+    if (HitPoints > 0)
     {
         HitPoints -= amount;
         std::cout << "ClapTrap " << Name  << " took damage " << amount  << std::endl;
