@@ -9,7 +9,7 @@ ClapTrap::ClapTrap()
     AttackDamage = 0;
 }
 
-ClapTrap::ClapTrap(const std::string user)
+ClapTrap::ClapTrap(std::string user)
 {
     std::cout << "ClapTrap "<< user << " create" << std::endl;
     Name = user;
@@ -90,4 +90,8 @@ int ClapTrap::getEnergyPoints() const {
 
 int ClapTrap::getAttackDamage() const {
     return AttackDamage;
+}
+
+std::string ClapTrap::getName(void) const {
+    return this->Name;
 }

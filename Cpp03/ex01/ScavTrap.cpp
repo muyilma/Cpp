@@ -9,7 +9,16 @@ ScavTrap::ScavTrap()
     std::cout << "ScavTrap Default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other)
+ScavTrap::ScavTrap(std::string user) : ClapTrap(user)
+{ 
+    Name=user;
+    HitPoints=100;
+    EnergyPoints=50;
+    AttackDamage=20;
+    std::cout << "ScavTrap " << Name << " create" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
     Name=other.Name;
     HitPoints = other.HitPoints;
@@ -44,23 +53,12 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
     return *this;
 }
 
-ScavTrap::ScavTrap(const std::string user)
-{
-    std::cout << "ScavTrap "<< user << " create" << std::endl;
-    Name = user;
-    HitPoints = 10;
-    EnergyPoints = 10;
-    AttackDamage = 0;
-}
-
-
 ScavTrap::~ScavTrap()
 {
     std::cout << "ScavTrap Destructor called" << std::endl;
 }
 
-
 void ScavTrap::guardGate()
 {
-    std::cout << "Gate keeper active" << std::endl;
+    std::cout << "ScavTrap " << Name << " Gate keeper active" << std::endl;
 }
