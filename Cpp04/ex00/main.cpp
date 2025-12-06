@@ -17,6 +17,8 @@ int main()
     delete i;
     delete j;
 
+    std::cout << std::endl;
+
     const WrongAnimal* WrongA = new WrongAnimal();
     const WrongAnimal* WrongC = new WrongCat();
 
