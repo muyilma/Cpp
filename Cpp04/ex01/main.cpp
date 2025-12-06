@@ -1,30 +1,46 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
+
 int main()
 {
-    const Animal* meta = new Animal();
     const Animal* j = new Dog();
     const Animal* i = new Cat();
-   
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-
-    delete meta;
+    delete j;//should not create a leak
     delete i;
-    delete j;
+    
+    const Animal* meta[4];
+    
+    for (int i = 0; i < 2; i++)
+        meta[i]=new Dog();
+    for (int i = 2; i < 4; i++)
+        meta[i]=new Cat();
+    std::cout << std::endl;
+    for (int i = 0; i < 4; i++)
+    {
+        std::cout << "Type: " <<  meta[i]->getType() << std::endl;
+        std::cout << "makeSound: ";
+        meta[i]->makeSound();
+    }
+    for (int i = 0; i < 4; i++)
+        delete meta[i];
 
-    const WrongAnimal* WrongA = new WrongAnimal();
-    const WrongAnimal* WrongC = new WrongCat();
+    std::cout << std::endl;
+    Cat* parent=new Cat();
+    parent->setIdeas("I'm hungry");
+    Cat* child =new Cat(*parent);
+    
+    std::cout << std::endl;
+    std::cout << "parent: " <<  parent->getIdeas() << std::endl;
+    std::cout << "child: " <<  child->getIdeas() << std::endl;
+    std::cout << std::endl;
 
-    std::cout << WrongA->getType() << " " << std::endl;
-    std::cout << WrongC->getType() << " " << std::endl;
-    WrongA->makeSound();
-    WrongC->makeSound();
-    delete WrongA;
-    delete WrongC;
-    return 0;
+    parent->setIdeas("I'm not hungry");
+    std::cout << std::endl;
+    std::cout << "parent: " <<  parent->getIdeas() << std::endl;
+    std::cout << "child: " <<  child->getIdeas() << std::endl;
+    std::cout << std::endl;
+
+    delete parent;
+    delete child;
 }

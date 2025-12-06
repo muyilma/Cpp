@@ -1,8 +1,8 @@
 NAME=Polymorphism
 
 CXX = c++
-CXXFLAGS =-std=c++98 -Wall -Wextra -Werror
-SRC = main.cpp Dog.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
+CXXFLAGS =-std=c++98 #-Wall -Wextra -Werror
+SRC = main.cpp Dog.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJS = $(SRC:.cpp=.o)
 
 all: $(NAME)
