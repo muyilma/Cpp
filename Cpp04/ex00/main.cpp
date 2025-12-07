@@ -21,11 +21,14 @@ int main()
 
     const WrongAnimal* WrongA = new WrongAnimal();
     const WrongAnimal* WrongC = new WrongCat();
+    const WrongCat* WrongCa = new WrongCat();
 
     std::cout << WrongA->getType() << " " << std::endl;
     std::cout << WrongC->getType() << " " << std::endl;
     WrongA->makeSound();
     WrongC->makeSound();
+    WrongCa->makeSound();
+    delete WrongCa;
     delete WrongA;
     delete WrongC;
     return 0;
