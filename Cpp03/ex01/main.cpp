@@ -12,8 +12,9 @@ int main()
     std::cout << "ScavTrap " << Hunter.getName() << " Heal: " << Hunter.getHitPoints() << " EnergyPoints: " << Hunter.getEnergyPoints() << " AttackDamage: "<< Hunter.getAttackDamage() << std::endl;
     std::cout << std::endl;
     
-    Hunter.attack("Casper");
-    casper.takeDamage(10);
+    for (int i = 0; i < 4; i++)
+        Hunter.attack("Casper");
+    casper.takeDamage(100);
     casper.attack("Hunter");
     std::cout << std::endl;
 

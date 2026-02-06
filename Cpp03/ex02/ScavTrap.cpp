@@ -2,8 +2,6 @@
 
 ScavTrap::ScavTrap()
 { 
-    Name="Anonymous";
-    HitPoints=100;
     EnergyPoints=50;
     AttackDamage=20;
     std::cout << "ScavTrap Default constructor called" << std::endl;
@@ -11,8 +9,6 @@ ScavTrap::ScavTrap()
 
 ScavTrap::ScavTrap(std::string user) : ClapTrap(user)
 { 
-    Name=user;
-    HitPoints=100;
     EnergyPoints=50;
     AttackDamage=20;
     std::cout << "ScavTrap " << Name << " create" << std::endl;
@@ -43,7 +39,6 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
     if (this != &other)
     {
-        
         Name=other.Name;
         HitPoints = other.HitPoints;
         EnergyPoints = other.EnergyPoints;

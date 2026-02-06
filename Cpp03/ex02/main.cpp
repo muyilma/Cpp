@@ -13,8 +13,9 @@ int main()
     std::cout << "FragTrap " << pirate.getName() << " Heal: " << pirate.getHitPoints() << " EnergyPoints: " << pirate.getEnergyPoints() << " AttackDamage: "<< pirate.getAttackDamage() << std::endl;
     std::cout << std::endl;
 
-    pirate.attack("Protector");
-    protector.takeDamage(10);
+    for (int i = 0; i < 4; i++)
+        pirate.attack("Protector");
+    protector.takeDamage(100);
     protector.attack("Pirate");
     std::cout << std::endl;
 

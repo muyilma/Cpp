@@ -38,4 +38,3 @@ std::string Brain::getIdeas() const
 {
     return ideas[0];
 }
-

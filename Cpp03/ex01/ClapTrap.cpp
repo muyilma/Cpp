@@ -4,7 +4,7 @@ ClapTrap::ClapTrap()
 { 
     std::cout << "ClapTrap Default constructor called" << std::endl;
     Name = "Anonymous";
-    HitPoints = 10;
+    HitPoints = 100;
     EnergyPoints = 10;
     AttackDamage = 0;
 }
@@ -13,7 +13,7 @@ ClapTrap::ClapTrap(const std::string user)
 {
     std::cout << "ClapTrap "<< user << " create" << std::endl;
     Name = user;
-    HitPoints = 10;
+    HitPoints = 100;
     EnergyPoints = 10;
     AttackDamage = 0;
 }
