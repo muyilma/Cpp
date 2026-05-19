@@ -63,3 +63,4 @@ int Fixed::toInt(void) const
 {
     return number >> bitNumber;
 }
+
