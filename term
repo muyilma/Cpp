@@ -6,3 +6,6 @@ expected = beklenen
 expression = ifade
 literal
 exception
+Base Class
+Object Slicing
+pure virtual
