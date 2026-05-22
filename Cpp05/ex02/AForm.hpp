@@ -28,12 +28,18 @@ class AForm
         {
              const char * what() const throw();
         };
-        void beSigned(const Bureaucrat &bro);
+        class NotSignedException : public std::exception
+        {
+             const char * what() const throw();
+        };
+
         std::string getName() const;
         bool getSign() const;
         int getGrade() const;
         int getExecuteSignature() const;
-
+        void execute(Bureaucrat const & executor) const;
+        void beSigned(const Bureaucrat &bro);
+        virtual void executeAction() const = 0;
 };
 
 std::ostream& operator<<(std::ostream &a,const AForm &b);

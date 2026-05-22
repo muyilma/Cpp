@@ -1,22 +1,60 @@
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm",false,145,137), target("Anonim")
 { 
-    std::cout << "ShrubberyCreationForm Default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other), target(other.target)
 {
-    std::cout << "ShrubberyCreationForm Copy constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-    std::cout << "ShrubberyCreationForm Destructor called" << std::endl;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 {
-    std::cout << "ShrubberyCreationForm Copy assignment operator called" << std::endl;
+    if (this != &other)
+    {
+        AForm::operator=(other);
+        this->target = other.target;
+    }
     return *this;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name)  : AForm("ShrubberyCreationForm",false,145,137), target(name)
+{
+}
+
+void ShrubberyCreationForm::executeAction() const
+{
+    std::string fileName = this->target + "_shrubbery";
+    std::ofstream outFile(fileName.c_str());
+
+    if (!outFile.is_open())
+    {
+        std::cerr << "Hata: " << fileName << " dosyasi olusturulamadi!" << std::endl;
+        return;
+    }
+
+    outFile << "         v" << std::endl;
+    outFile << "        >X<" << std::endl;
+    outFile << "         A" << std::endl;
+    outFile << "        d$b" << std::endl;
+    outFile << "      .d\\$$b." << std::endl;
+    outFile << "    .d$i$$\\$$b." << std::endl;
+    outFile << "       d$$@b" << std::endl;
+    outFile << "      d\\$$$ib" << std::endl;
+    outFile << "    .d$$$\\$$$b" << std::endl;
+    outFile << "  .d$$@$$$$\\$$ib." << std::endl;
+    outFile << "      d$$i$$b" << std::endl;
+    outFile << "     d\\$$$$@$b" << std::endl;
+    outFile << "  .d$@$$\\$$$$$@b." << std::endl;
+    outFile << ".d$$$$i$$$\\$$$$$$b." << std::endl;
+    outFile << "        ###" << std::endl;
+    outFile << "        ###" << std::endl;
+    outFile << "        ###" << std::endl;
+
+    outFile.close();
 }

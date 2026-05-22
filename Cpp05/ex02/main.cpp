@@ -1,27 +1,67 @@
+#include <iostream>
+#include <cstdlib> // rand() ve srand() için
+#include <ctime>   // time() için
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
+    std::cout << "-------------------------------------------------------" << std::endl;
+    std::cout << "Bürokratlar Oluşturuluyor..." << std::endl;
+    std::cout << "-------------------------------------------------------" << std::endl;
+    
     try
     {
-        const Bureaucrat a;
-        const Bureaucrat b("mustafa",55);
-        const Bureaucrat c(b);
-         Form f1;
-         Form f2("mustafa ea",false,50,50);
-         Form f3(f2);
+        Bureaucrat boss("Patron", 1);       
+        Bureaucrat stajyer("Stajyer", 150); 
 
-        std::cout << a << std::endl << b << std::endl << c << std::endl;
-        std::cout << f1 << std::endl << f2 << std::endl << f3 << std::endl;
-        f2.beSigned(b);
-        f1.beSigned(a);
+        ShrubberyCreationForm shrubbery("Bahce");
+        RobotomyRequestForm robotomy("Bender");
+        PresidentialPardonForm pardon("Arthur Dent");
+
+        std::cout << boss << std::endl;
+        std::cout << stajyer << std::endl;
+
+        std::cout << "\n=======================================================" << std::endl;
+        std::cout << "[TEST 1] SHRUBBERY CREATION FORM (İstenen: Sign 145, Exec 137)" << std::endl;
+        std::cout << "=======================================================" << std::endl;
+        
+        stajyer.signForm(shrubbery); 
+        boss.signForm(shrubbery);    
+        stajyer.executeForm(shrubbery); 
+        boss.executeForm(shrubbery);   
+
+        std::cout << "\n=======================================================" << std::endl;
+        std::cout << "[TEST 2] ROBOTOMY REQUEST FORM (İstenen: Sign 72, Exec 45)" << std::endl;
+        std::cout << "=======================================================" << std::endl;
+        
+        boss.signForm(robotomy);
+        
+        boss.executeForm(robotomy); 
+        boss.executeForm(robotomy);
+        boss.executeForm(robotomy);
+
+        std::cout << "\n=======================================================" << std::endl;
+        std::cout << "[TEST 3] PRESIDENTIAL PARDON FORM (İstenen: Sign 25, Exec 5)" << std::endl;
+        std::cout << "=======================================================" << std::endl;
+        
+        boss.signForm(pardon);
+        boss.executeForm(pardon); 
+
+        std::cout << "\n=======================================================" << std::endl;
+        std::cout << "[TEST 4] İMZASIZ FORM ÇALIŞTIRMA DENEMESİ" << std::endl;
+        std::cout << "=======================================================" << std::endl;
+        
+        PresidentialPardonForm imzasizForm("Suclu");
+        boss.executeForm(imzasizForm); 
+
     }
-    catch(const std::exception& e)
+    catch (std::exception &e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << "Main içindeki kritik hata: " << e.what() << std::endl;
     }
-    
-    
 
-    
+    return 0;
 }

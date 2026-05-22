@@ -24,7 +24,6 @@ AForm& AForm::operator=(const AForm& other)
 {
     if (this != &other)
         this->sign = other.sign;
-    std::cout << "AForm Copy assignment operator called" << std::endl;
     return *this;
 }
 
@@ -54,6 +53,12 @@ const char * AForm::GradeTooLowException::what() const throw()
     return "Grade is too low";
 }
 
+const char * AForm::NotSignedException::what() const throw()
+{
+    return "No signature authorityr";
+}
+
+
 std::ostream& operator<<(std::ostream &os,const AForm &Aform)
 {
     os << Aform.getName() << Aform.getSign() << Aform.getGrade() << Aform.getExecuteSignature(); 
@@ -66,4 +71,14 @@ void AForm::beSigned(const Bureaucrat &bro)
         this->sign = true;
     else
         throw GradeTooLowException();
+}
+
+void AForm::execute(Bureaucrat const & executor) const
+{
+    if (!this->getSign())
+        throw AForm::NotSignedException();
+    if (executor.getGrade() > this->getExecuteSignature())
+        throw AForm::GradeTooLowException();
+        
+    this->executeAction(); 
 }
