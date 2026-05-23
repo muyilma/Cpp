@@ -31,7 +31,7 @@ void RobotomyRequestForm::executeAction() const
 {
     std::cout << "* DRRRRRR! ZZZZZZZZZ! BAM BAM BAM! * (Korkutucu matkap sesleri...)" << std::endl;
 
-    std::srand(time(NULL));
+    
 
     if (rand() % 2 == 0)
         std::cout << this->target << " has been robotomized successfully!" << std::endl;

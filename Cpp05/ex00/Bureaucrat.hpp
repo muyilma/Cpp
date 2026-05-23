@@ -26,7 +26,8 @@ class Bureaucrat
         };
         const std::string getName() const;
         int getGrade() const;
-
+        void gradePlus();
+        void gradeMinus();
 };
 
 std::ostream& operator<<(std::ostream &a,const Bureaucrat &b);

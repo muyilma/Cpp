@@ -10,10 +10,10 @@ AForm::AForm(const AForm& other) : name(other.getName()), sign(other.getSign()),
 
 AForm::AForm(const std::string name, bool sign, const int grade, const int execute_grade) : name(name), sign(sign), grade(grade), execute_grade(execute_grade)
 {
-    if (grade < 1)
-        throw GradeTooLowException();
-    else if(grade > 150)
+    if (grade < 1 || execute_grade < 1)
         throw GradeTooHighException();
+    else if(grade > 150 || execute_grade > 150)
+        throw GradeTooLowException();
 }
 
 AForm::~AForm()
@@ -55,7 +55,7 @@ const char * AForm::GradeTooLowException::what() const throw()
 
 const char * AForm::NotSignedException::what() const throw()
 {
-    return "No signature authorityr";
+    return "No signature authority";
 }
 
 
@@ -70,15 +70,15 @@ void AForm::beSigned(const Bureaucrat &bro)
     if (bro.getGrade() <= this->getGrade())
         this->sign = true;
     else
-        throw GradeTooLowException();
+        throw GradeTooHighException();
 }
 
 void AForm::execute(Bureaucrat const & executor) const
 {
     if (!this->getSign())
-        throw AForm::NotSignedException();
+        throw NotSignedException();
     if (executor.getGrade() > this->getExecuteSignature())
-        throw AForm::GradeTooLowException();
+        throw GradeTooLowException();
         
     this->executeAction(); 
 }

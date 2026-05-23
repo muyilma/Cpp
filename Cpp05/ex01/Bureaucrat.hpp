@@ -29,6 +29,8 @@ class Bureaucrat
         };
         const std::string getName() const;
         int getGrade() const;
+        void gradePlus();
+        void gradeMinus();
         void singForm(Form &form);
 };
 

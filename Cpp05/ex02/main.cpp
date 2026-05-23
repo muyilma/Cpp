@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cstdlib> // rand() ve srand() için
-#include <ctime>   // time() için
+#include <cstdlib> 
+#include <ctime>   
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
