@@ -36,7 +36,7 @@ AForm* Intern::createPresidential(const std::string& target){
 
 AForm* Intern::makeForm(const std::string& name, const std::string& target)
 {
-    std::string formName [] = {"PresidentialPardonForm","RobotomyRequestForm","ShrubberyCreationForm"};
+    std::string formName [] = {"presidential pardon", "robotomy request", "shrubbery creation"};
 
     AForm* (Intern::*funcAddress[])(const std::string&) = {&Intern::createPresidential, &Intern::createRobotomy, &Intern::createShrubbery};
 
@@ -48,5 +48,6 @@ AForm* Intern::makeForm(const std::string& name, const std::string& target)
             return (this->*funcAddress[i])(target);
         }
     }
+    std::cout << "Error: Intern cannot create " << name << " because the form name is invalid!" << std::endl;
     return NULL;
 }

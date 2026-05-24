@@ -26,5 +26,5 @@ PresidentialPardonForm::PresidentialPardonForm(std::string name) : AForm("Presid
 }
 
 void PresidentialPardonForm::executeAction() const{
-    std::cout << this->target << " Zaphod was pardoned by Beeblebrox." << std::endl;
+    std::cout << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

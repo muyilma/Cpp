@@ -31,7 +31,7 @@ class Bureaucrat
         int getGrade() const;
         void gradePlus();
         void gradeMinus();
-        void singForm(Form &form);
+        void signForm(Form &form);
 };
 
 std::ostream& operator<<(std::ostream &a,const Bureaucrat &b);

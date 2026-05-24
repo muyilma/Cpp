@@ -2,7 +2,7 @@
 
 Bureaucrat::Bureaucrat() : name("Anonim")
 { 
-    grade = 0;
+    grade = 150;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name)
@@ -48,16 +48,17 @@ int Bureaucrat::getGrade() const{
 
 void Bureaucrat::gradeMinus()
 {
-    if (grade - 1 < 1)
-        throw GradeTooHighException();
-    grade--;    
+    if (grade + 1 > 150)
+        throw GradeTooLowException();
+    grade++;
+    
 }
 
 void Bureaucrat::gradePlus()
 {
-    if (grade + 1 > 150)
-        throw GradeTooLowException();
-    grade++;
+    if (grade - 1 < 1)
+        throw GradeTooHighException();
+    grade--;
 }
 
 
