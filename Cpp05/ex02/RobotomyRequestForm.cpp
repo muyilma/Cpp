@@ -29,13 +29,10 @@ RobotomyRequestForm::RobotomyRequestForm(std::string name) : AForm("RobotomyRequ
 
 void RobotomyRequestForm::executeAction() const
 {
-    std::cout << "* DRRRRRR! ZZZZZZZZZ! BAM BAM BAM! * (Korkutucu matkap sesleri...)" << std::endl;
-
-    
+    std::cout << "DRRRR!! ZZZZZ!!! PIRRR PIRRR!!! (Terrifying drill sounds...)" << std::endl;
 
     if (rand() % 2 == 0)
         std::cout << this->target << " has been robotomized successfully!" << std::endl;
     else
         std::cout << "Robotomy failed on " << this->target << ". It's still a human." << std::endl;
-
 }

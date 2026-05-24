@@ -1,67 +1,78 @@
-#include <iostream>
-#include <cstdlib> 
-#include <ctime>   
+#include <cstdlib>
+#include <ctime>
+
 #include "Bureaucrat.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+
+void monitorUsers(const Bureaucrat mustafa, const Bureaucrat boss, const Bureaucrat anonim)
+{
+    std::cout << "---Users---" << std::endl;
+    std::cout << anonim << std::endl;
+    std::cout << mustafa << std::endl;
+    std::cout << boss << std::endl;
+}
+
+void mointorForms(PresidentialPardonForm pardon, ShrubberyCreationForm shrubbery, RobotomyRequestForm robotomy)
+{
+    std::cout << "\n---Forms---" << std::endl;
+    std::cout << pardon << std::endl;
+    std::cout << shrubbery << std::endl;
+    std::cout << robotomy << std::endl;
+}
 
 int main()
 {
-    std::cout << "-------------------------------------------------------" << std::endl;
-    std::cout << "Bürokratlar Oluşturuluyor..." << std::endl;
-    std::cout << "-------------------------------------------------------" << std::endl;
-    
+    std::srand(std::time(NULL));
     try
     {
-        Bureaucrat boss("Patron", 1);       
-        Bureaucrat stajyer("Stajyer", 150); 
-
-        ShrubberyCreationForm shrubbery("Bahce");
-        RobotomyRequestForm robotomy("Bender");
-        PresidentialPardonForm pardon("Arthur Dent");
-
-        std::cout << boss << std::endl;
-        std::cout << stajyer << std::endl;
-
-        std::cout << "\n=======================================================" << std::endl;
-        std::cout << "[TEST 1] SHRUBBERY CREATION FORM (İstenen: Sign 145, Exec 137)" << std::endl;
-        std::cout << "=======================================================" << std::endl;
+        Bureaucrat mustafa("Mustafa",112);
+        Bureaucrat boss("Boss",1);
+        Bureaucrat anonim;
+        monitorUsers(mustafa,boss,anonim);
         
-        stajyer.signForm(shrubbery); 
-        boss.signForm(shrubbery);    
-        stajyer.executeForm(shrubbery); 
-        boss.executeForm(shrubbery);   
+        PresidentialPardonForm pardon("pardon");
+        ShrubberyCreationForm shrubbery("Shrubbery");
+        RobotomyRequestForm robotomy("Robotomy");
+        mointorForms(pardon,shrubbery,robotomy);
 
-        std::cout << "\n=======================================================" << std::endl;
-        std::cout << "[TEST 2] ROBOTOMY REQUEST FORM (İstenen: Sign 72, Exec 45)" << std::endl;
-        std::cout << "=======================================================" << std::endl;
-        
-        boss.signForm(robotomy);
-        
-        boss.executeForm(robotomy); 
-        boss.executeForm(robotomy);
-        boss.executeForm(robotomy);
-
-        std::cout << "\n=======================================================" << std::endl;
-        std::cout << "[TEST 3] PRESIDENTIAL PARDON FORM (İstenen: Sign 25, Exec 5)" << std::endl;
-        std::cout << "=======================================================" << std::endl;
-        
+        std::cout << "\n---Pardon Signed---" << std::endl;
+        anonim.signForm(pardon);
+        mustafa.signForm(pardon);
         boss.signForm(pardon);
-        boss.executeForm(pardon); 
 
-        std::cout << "\n=======================================================" << std::endl;
-        std::cout << "[TEST 4] İMZASIZ FORM ÇALIŞTIRMA DENEMESİ" << std::endl;
-        std::cout << "=======================================================" << std::endl;
+        std::cout << "\n---Pardon Execute---" << std::endl;
+        anonim.executeForm(pardon);
+        mustafa.executeForm(pardon);
+        boss.executeForm(pardon);
+
+        std::cout << "\n---Shrubbery Signed---" << std::endl;
+        anonim.signForm(shrubbery);
+        mustafa.signForm(shrubbery);
+        boss.signForm(shrubbery);
+
+        std::cout << "\n---Shrubbery Execute---" << std::endl;
+        anonim.executeForm(shrubbery);
+        mustafa.executeForm(shrubbery);
+        boss.executeForm(shrubbery);
+
+        std::cout << "\n---Robotomy Signed---" << std::endl;
+        anonim.signForm(robotomy);
+        mustafa.signForm(robotomy);
+        boss.signForm(robotomy);
+
+        std::cout << "\n---Robotomy Execute---" << std::endl;
+        anonim.executeForm(robotomy);
+        mustafa.executeForm(robotomy);
+        boss.executeForm(robotomy);
+
+        std::cout << "\n---Error---" << std::endl;
         
-        PresidentialPardonForm imzasizForm("Suclu");
-        boss.executeForm(imzasizForm); 
-
     }
-    catch (std::exception &e)
+    catch(const std::exception& e)
     {
-        std::cerr << "Main içindeki kritik hata: " << e.what() << std::endl;
+        std::cerr << e.what() << '\n';
     }
-
-    return 0;
+    
 }

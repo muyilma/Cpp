@@ -61,7 +61,8 @@ const char * AForm::NotSignedException::what() const throw()
 
 std::ostream& operator<<(std::ostream &os,const AForm &Aform)
 {
-    os << Aform.getName() << Aform.getSign() << Aform.getGrade() << Aform.getExecuteSignature(); 
+     os << "Name: " << Aform.getName() << " | Signed: " << (Aform.getSign() ? "Yes" : "No")
+       << " | Grade: " << Aform.getGrade() << " | Execute Grade: " << Aform.getExecuteSignature();
     return os;
 }
 
@@ -70,7 +71,7 @@ void AForm::beSigned(const Bureaucrat &bro)
     if (bro.getGrade() <= this->getGrade())
         this->sign = true;
     else
-        throw GradeTooHighException();
+        throw GradeTooLowException();
 }
 
 void AForm::execute(Bureaucrat const & executor) const

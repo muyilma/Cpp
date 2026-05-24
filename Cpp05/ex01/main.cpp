@@ -1,20 +1,53 @@
 #include "Bureaucrat.hpp"
 
+void mointorForms(const Form simple, const Form bigForm, const Form smallForm)
+{
+    std::cout << "\n---Forms---" << std::endl;
+    std::cout << simple << std::endl;
+    std::cout << bigForm << std::endl;
+    std::cout << smallForm << std::endl;
+}
+
+void monitorUsers(const Bureaucrat mustafa, const Bureaucrat boss, const Bureaucrat anonim)
+{
+    std::cout << "---Users---" << std::endl;
+    std::cout << anonim << std::endl;
+    std::cout << mustafa << std::endl;
+    std::cout << boss << std::endl;
+}
+
 int main()
 {
     try
     {
-        const Bureaucrat a;
-        const Bureaucrat b("mustafa",55);
-        const Bureaucrat c(b);
-         Form f1;
-         Form f2("mustafa ea",false,50,50);
-         Form f3(f2);
+        Bureaucrat mustafa("Mustafa",112);
+        Bureaucrat boss("Boss",1);
+        Bureaucrat anonim;
+        monitorUsers(mustafa,boss,anonim);
+        
+        Form bigForm("bigForm",false,10,10);
+        Form smallForm("smallForm",false,130,130);
+        Form simple;
+        mointorForms(simple,bigForm,smallForm);
 
-        std::cout << a << std::endl << b << std::endl << c << std::endl;
-        std::cout << f1 << std::endl << f2 << std::endl << f3 << std::endl;
-        f2.beSigned(b);
-        f1.beSigned(a);
+        std::cout << "\n---Signed---" << std::endl;
+        boss.signForm(simple);
+        mustafa.signForm(simple);
+        anonim.signForm(simple);
+
+        std::cout << "\n---Signed-V2---" << std::endl;
+        boss.signForm(smallForm);
+        mustafa.signForm(smallForm);
+        anonim.signForm(smallForm);
+        
+        std::cout << "\n---Signed-V3---" << std::endl;
+        boss.signForm(bigForm);
+        mustafa.signForm(bigForm);
+        anonim.signForm(bigForm);
+
+        std::cout << "\n---Error---" << std::endl;
+        Form errorForm("errorForm",false,151,151);
+        Form errorForm2("errorForm",false,-1,-1);
     }
     catch(const std::exception& e)
     {
