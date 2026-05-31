@@ -45,6 +45,7 @@ int main()
         mustafa.signForm(bigForm);
         anonim.signForm(bigForm);
 
+        mointorForms(simple,bigForm,smallForm);
         std::cout << "\n---Error---" << std::endl;
         Form errorForm("errorForm",false,151,151);
         Form errorForm2("errorForm",false,-1,-1);

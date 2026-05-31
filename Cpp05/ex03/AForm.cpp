@@ -55,7 +55,7 @@ const char * AForm::GradeTooLowException::what() const throw()
 
 const char * AForm::NotSignedException::what() const throw()
 {
-    return "No signature authority";
+    return "Form is not Signed";
 }
 
 

@@ -31,12 +31,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "Grade too high!\n"; 
+	return "Grade too high!"; 
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "Grade too low!\n";
+	return "Grade too low!";
 }
 
 const std::string Bureaucrat::getName() const{
@@ -49,7 +49,7 @@ int Bureaucrat::getGrade() const{
 
 void Bureaucrat::gradeMinus()
 {
-    if (grade + 1 > 150)
+    if (grade  >= 150)
         throw GradeTooLowException();
     grade++;
     
@@ -57,7 +57,7 @@ void Bureaucrat::gradeMinus()
 
 void Bureaucrat::gradePlus()
 {
-    if (grade - 1 < 1)
+    if (grade  <= 1)
         throw GradeTooHighException();
     grade--;
 }

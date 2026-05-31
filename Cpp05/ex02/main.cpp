@@ -57,6 +57,11 @@ int main()
         mustafa.executeForm(shrubbery);
         boss.executeForm(shrubbery);
 
+        std::cout << "\n---Robotomy Execute---" << std::endl;
+        anonim.executeForm(robotomy);
+        mustafa.executeForm(robotomy);
+        boss.executeForm(robotomy);
+        
         std::cout << "\n---Robotomy Signed---" << std::endl;
         anonim.signForm(robotomy);
         mustafa.signForm(robotomy);
@@ -65,10 +70,7 @@ int main()
         std::cout << "\n---Robotomy Execute---" << std::endl;
         anonim.executeForm(robotomy);
         mustafa.executeForm(robotomy);
-        boss.executeForm(robotomy);
-
-        std::cout << "\n---Error---" << std::endl;
-        
+        boss.executeForm(robotomy);        
     }
     catch(const std::exception& e)
     {

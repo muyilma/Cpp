@@ -10,9 +10,9 @@ Form::Form(const Form& other) : name(other.getName()), sign(other.getSign()), gr
 
 Form::Form(const std::string name, bool sign, const int grade, const int execute_grade) : name(name), sign(sign), grade(grade), execute_grade(execute_grade)
 {
-    if (grade < 1)
+    if (grade < 1 || execute_grade < 1)
         throw GradeTooHighException();
-    else if(grade > 150)
+    else if(grade > 150 || execute_grade > 150)
         throw GradeTooLowException();
 }
 
@@ -24,7 +24,6 @@ Form& Form::operator=(const Form& other)
 {
     if (this != &other)
         this->sign = other.sign;
-    std::cout << "Form Copy assignment operator called" << std::endl;
     return *this;
 }
 

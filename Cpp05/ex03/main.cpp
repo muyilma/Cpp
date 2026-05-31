@@ -21,6 +21,7 @@ int main()
             Bureaucrat boss("Boss", 1);
             boss.signForm(*rrf);
             boss.executeForm(*rrf);
+            delete rrf;
         }
         rrf = someRandomIntern.makeForm("non-form", "Bender");
         
