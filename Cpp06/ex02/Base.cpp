@@ -1,6 +1,9 @@
 #include "Base.hpp"
 #include <cstdlib>
 #include <exception> 
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 Base::~Base()
 {
@@ -15,7 +18,7 @@ Base * generate(void)
         return new A;
     else if (random == 1)
         return new B;
-    else if (random == 2)
+    else 
         return new C;
 }
 

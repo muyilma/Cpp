@@ -7,7 +7,6 @@ int main()
 {
     std::srand(std::time(NULL));
 
-    std::cout << "--- RASTGELE SINIF URETIMI TESTI ---" << std::endl;
 
     for (int i = 1; i <= 5; i++)
     {
@@ -15,10 +14,10 @@ int main()
         
         Base* rastgeleObje = generate();
 
-        std::cout << "Pointer (Base*) ile tespit  : ";
+        std::cout << "Pointer (Base*) : ";
         identify(rastgeleObje);
 
-        std::cout << "Referans (Base&) ile tespit : ";
+        std::cout << "Referans (Base&) : ";
         identify(*rastgeleObje);
 
         delete rastgeleObje;

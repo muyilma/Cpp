@@ -6,7 +6,7 @@ int main()
     Data myData;
     myData.price = 42.42f;
 
-    std::cout << "--- ORİJİNAL DATA ---" << std::endl;
+    std::cout << "--- ORGINAL DATA ---" << std::endl;
     std::cout << "Data adresses  : " << &myData << std::endl;
     std::cout << "Data price   : " << myData.price << "f" << std::endl;
     std::cout << "---------------------" << std::endl << std::endl;

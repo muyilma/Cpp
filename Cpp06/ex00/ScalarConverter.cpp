@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <limits> 
 #include <cmath>   
+#include <iomanip>
 
 ScalarConverter::ScalarConverter(){ }
 ScalarConverter::ScalarConverter(const ScalarConverter& other){ (void)other; }
@@ -32,43 +33,33 @@ static void convertInt(double val)
 
 static void convertFloat(double val)
 {
-    std::cout << "float: ";
     float fVal = static_cast<float>(val);
     
-    if (fVal - static_cast<int>(fVal) == 0)
-        std::cout << fVal << ".0f" << std::endl;
-    else
-        std::cout << fVal << "f" << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << "float: " << fVal << "f" << std::endl;
 }
 
 static void convertDouble(double val)
 {
-    std::cout << "double: ";
-    
-    if (val - static_cast<int>(val) == 0)
-        std::cout << val << ".0" << std::endl;
-    else
-        std::cout << val << std::endl;
+    std::cout << std::fixed << std::setprecision(1) << "double: " << val << std::endl;
+
 }
 
 void ScalarConverter::convert(std::string ltr)
 {
-    std::string pseudo[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
-    for (int i = 0; i < 6; i++)
+    std::string pseudo_float[4] = {"-inff", "+inff", "nanf", "inff"};
+    std::string pseudo_double[4] = {"-inf", "+inf", "nan", "inf"};
+
+    for (int i = 0; i < 4; i++)
     {
-        if (ltr == pseudo[i])
+        if (ltr == pseudo_float[i] || ltr == pseudo_double[i])
         {
             std::cout << "char: impossible" << std::endl;
             std::cout << "int: impossible" << std::endl;
-
-            std::string f_val = (i < 3) ? pseudo[i] : pseudo[i] + "f";
-            std::string d_val = (i >= 3) ? pseudo[i] : pseudo[i].substr(0, pseudo[i].length() - 1);
-            
-            std::cout << "float: " << f_val << std::endl;
-            std::cout << "double: " << d_val << std::endl;
+            std::cout << "float: " << pseudo_float[i] << std::endl;
+            std::cout << "double: " << pseudo_double[i] << std::endl;
             return; 
         }
-    }
+    }   
 
     if (ltr.length() == 1 && !isdigit(ltr[0]))
     {
@@ -83,17 +74,17 @@ void ScalarConverter::convert(std::string ltr)
     char *endPtr;
     double val = std::strtod(ltr.c_str(), &endPtr);
 
-    if (*endPtr != '\0' && *endPtr != 'f')
+
+    if (*endPtr == '\0' || (*endPtr == 'f' && *(endPtr + 1) == '\0'))
     {
-        std::cout << "char: impossible" << std::endl;
-        std::cout << "int: impossible" << std::endl;
-        std::cout << "float: impossible" << std::endl;
-        std::cout << "double: impossible" << std::endl;
+        convertChar(val);
+        convertInt(val);
+        convertFloat(val);
+        convertDouble(val);
         return;
     }
-
-    convertChar(val);
-    convertInt(val);
-    convertFloat(val);
-    convertDouble(val);
+    std::cout << "char: impossible" << std::endl;
+    std::cout << "int: impossible" << std::endl;
+    std::cout << "float: impossible" << std::endl;
+    std::cout << "double: impossible" << std::endl;
 }
