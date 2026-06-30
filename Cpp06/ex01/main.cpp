@@ -1,5 +1,4 @@
 #include "Serializer.hpp"
-#include <iostream>
 
 int main()
 {
@@ -7,7 +6,7 @@ int main()
     myData.price = 42.42f;
 
     std::cout << "--- ORGINAL DATA ---" << std::endl;
-    std::cout << "Data adresses  : " << &myData << std::endl;
+    std::cout << "Data addresses  : " << &myData << std::endl;
     std::cout << "Data price   : " << myData.price << "f" << std::endl;
     std::cout << "---------------------" << std::endl << std::endl;
 
@@ -22,14 +21,14 @@ int main()
     Data* deserializedData = Serializer::deserialize(rawPtr);
 
     std::cout << "--- DESERIALIZED DATA ---" << std::endl;
-    std::cout << "New Data adresses : " << deserializedData << std::endl;
+    std::cout << "New Data addresses : " << deserializedData << std::endl;
     std::cout << "New Data price  : " << deserializedData->price << "f" << std::endl;
     std::cout << "-------------------------" << std::endl << std::endl;
 
 
     std::cout << "--- TEST RESULT ---" << std::endl;
     if (&myData == deserializedData)
-        std::cout << "[Sucsess] " << std::endl;
+        std::cout << "[Success] " << std::endl;
     else
         std::cout << "[Error]" << std::endl;
 

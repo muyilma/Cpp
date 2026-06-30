@@ -1,7 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm",false,145,137), target("Anonim")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm",false,145,137), target("anonymous")
 { 
 }
 

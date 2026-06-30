@@ -1,6 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm",false,25,5), target("Anonim")
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm",false,25,5), target("anonymous")
 {   
 }
 

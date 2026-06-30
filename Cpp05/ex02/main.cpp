@@ -6,10 +6,10 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-void monitorUsers(const Bureaucrat mustafa, const Bureaucrat boss, const Bureaucrat anonim)
+void monitorUsers(const Bureaucrat mustafa, const Bureaucrat boss, const Bureaucrat anonymous)
 {
     std::cout << "---Users---" << std::endl;
-    std::cout << anonim << std::endl;
+    std::cout << anonymous << std::endl;
     std::cout << mustafa << std::endl;
     std::cout << boss << std::endl;
 }
@@ -29,8 +29,8 @@ int main()
     {
         Bureaucrat mustafa("Mustafa",112);
         Bureaucrat boss("Boss",1);
-        Bureaucrat anonim;
-        monitorUsers(mustafa,boss,anonim);
+        Bureaucrat anonymous;
+        monitorUsers(mustafa,boss,anonymous);
         
         PresidentialPardonForm pardon("pardon");
         ShrubberyCreationForm shrubbery("Shrubbery");
@@ -38,37 +38,37 @@ int main()
         mointorForms(pardon,shrubbery,robotomy);
 
         std::cout << "\n---Pardon Signed---" << std::endl;
-        anonim.signForm(pardon);
+        anonymous.signForm(pardon);
         mustafa.signForm(pardon);
         boss.signForm(pardon);
 
         std::cout << "\n---Pardon Execute---" << std::endl;
-        anonim.executeForm(pardon);
+        anonymous.executeForm(pardon);
         mustafa.executeForm(pardon);
         boss.executeForm(pardon);
 
         std::cout << "\n---Shrubbery Signed---" << std::endl;
-        anonim.signForm(shrubbery);
+        anonymous.signForm(shrubbery);
         mustafa.signForm(shrubbery);
         boss.signForm(shrubbery);
 
         std::cout << "\n---Shrubbery Execute---" << std::endl;
-        anonim.executeForm(shrubbery);
+        anonymous.executeForm(shrubbery);
         mustafa.executeForm(shrubbery);
         boss.executeForm(shrubbery);
 
         std::cout << "\n---Robotomy Execute---" << std::endl;
-        anonim.executeForm(robotomy);
+        anonymous.executeForm(robotomy);
         mustafa.executeForm(robotomy);
         boss.executeForm(robotomy);
         
         std::cout << "\n---Robotomy Signed---" << std::endl;
-        anonim.signForm(robotomy);
+        anonymous.signForm(robotomy);
         mustafa.signForm(robotomy);
         boss.signForm(robotomy);
 
         std::cout << "\n---Robotomy Execute---" << std::endl;
-        anonim.executeForm(robotomy);
+        anonymous.executeForm(robotomy);
         mustafa.executeForm(robotomy);
         boss.executeForm(robotomy);        
     }

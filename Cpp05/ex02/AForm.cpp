@@ -1,6 +1,6 @@
 #include "AForm.hpp"
 
-AForm::AForm() : name("Anonim"), sign(false), grade(150), execute_grade(150)
+AForm::AForm() : name("anonymous"), sign(false), grade(150), execute_grade(150)
 {
 }
 

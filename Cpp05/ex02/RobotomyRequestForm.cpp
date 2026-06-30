@@ -1,7 +1,7 @@
 #include "RobotomyRequestForm.hpp"
 #include <cstdlib>
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm",false,72,45), target("Anonim")
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm",false,72,45), target("anonymous")
 { 
 }
 

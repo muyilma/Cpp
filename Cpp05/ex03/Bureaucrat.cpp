@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("Anonim")
+Bureaucrat::Bureaucrat() : name("anonymous")
 { 
     grade = 150;
 }

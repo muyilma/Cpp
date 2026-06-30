@@ -13,7 +13,7 @@ $(NAME): $(OBJS)
 run: $(NAME)
 	make clean
 	clear
-	./$(NAME)
+	./$(NAME) 42
 
 leak:
 	valgrind ./$(NAME) 

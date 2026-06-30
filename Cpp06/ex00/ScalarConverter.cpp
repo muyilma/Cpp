@@ -1,9 +1,4 @@
 #include "ScalarConverter.hpp"
-#include <iostream>
-#include <cstdlib>
-#include <limits> 
-#include <cmath>   
-#include <iomanip>
 
 ScalarConverter::ScalarConverter(){ }
 ScalarConverter::ScalarConverter(const ScalarConverter& other){ (void)other; }
@@ -73,7 +68,6 @@ void ScalarConverter::convert(std::string ltr)
 
     char *endPtr;
     double val = std::strtod(ltr.c_str(), &endPtr);
-
 
     if (*endPtr == '\0' || (*endPtr == 'f' && *(endPtr + 1) == '\0'))
     {

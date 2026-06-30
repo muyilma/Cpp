@@ -4,18 +4,18 @@ int main()
 {
     try
     {
-        Bureaucrat anonim;
+        Bureaucrat anonymous;
         Bureaucrat mustafa("Mustafa",112);
         
-        std::cout << anonim << std::endl;
+        std::cout << anonymous << std::endl;
         std::cout << mustafa << std::endl;
         
         for (int i = 0; i < 50; i++)
             mustafa.gradePlus();
         std::cout << mustafa << std::endl;
         
-        anonim.gradeMinus();
-        std::cout << anonim << std::endl;
+        anonymous.gradeMinus();
+        std::cout << anonymous << std::endl;
     }
     catch(const std::exception& e)
     {
