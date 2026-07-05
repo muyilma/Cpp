@@ -1,15 +1,13 @@
 #include "iter.hpp"
-#include <iostream>
 
-void topla(int sayi)
+void print(int number)
 {
-    std::cout << sayi << std::endl;
+    std::cout << number << std::endl;
 }   
 
 int main()
 {
     int array[] = {1, 2, 3, 4};
-
     
-    ::iter(array, 4 ,topla);
+    ::iter(array, 4 ,print);
 }

@@ -1,0 +1,9 @@
+Template şablon demek amacı değiçi bir data type ile bir fonksiyon veya class oluştururak kod tekrarını azalmak ve okunabilirliği arttırmak
+
+1- ::swap()  '::' bu kullanım nedir? adı ne?
+2- Typname nedir? başka nerelerde kullanılır?
+3- Template sadece şablon oluşturmak için mi kullanılır? ++
+4- Template <typename T> syntax neden böyle? <> bunun adı ne?
+5- Template kim bulmuş neden bulmuş? neyin çözümü olarak bulmuş? diğer yazılım dillerinde var mı? ilk hangisine gelmiş?
+6- T oluşturduğumuz data type buna gönderemiyceğimiz bir veri tipi var mı?
+7- Neden her yeni fonksiyon tanımalamama yeni template oluşturuyoru bir defa tanımlayıp onu kullansam hep  zaten aynı işlevleri var

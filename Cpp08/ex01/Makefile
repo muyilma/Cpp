@@ -1,8 +1,8 @@
-NAME=Bureaucrat
+NAME = easyfind
 
 CXX = c++
 CXXFLAGS =-std=c++98 -Wall -Wextra -Werror
-SRC = main.cpp Bureaucrat.cpp 
+SRC = main.cpp  
 OBJS = $(SRC:.cpp=.o)
 
 all: $(NAME)
