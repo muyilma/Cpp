@@ -26,7 +26,7 @@ class Span
         void addNumber(T first, T second)
         {
             if (std::distance(first, second) + _array.size() > _N)
-                throw std::out_of_range("Kapasite yetersiz! Bu kadar eleman eklenemez.");
+                throw std::out_of_range("Insufficient capacity!");
             
             _array.insert(_array.end(), first, second);
         }
