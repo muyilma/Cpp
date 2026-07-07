@@ -1,13 +1,16 @@
 #include "iter.hpp"
 
-void print(int number)
+template <typename T>
+void print(T &number)
 {
     std::cout << number << std::endl;
 }   
 
 int main()
 {
-    int array[] = {1, 2, 3, 4};
+    int arrayInt[] = {1, 2, 3, 4};
+    std::string arrayStr[] = {"mustafa","emre","yılmaz"};
     
-    ::iter(array, 4 ,print);
+    ::iter(arrayInt, 4 ,print<int>);
+    ::iter(arrayStr, 3 ,print<std::string>);
 }

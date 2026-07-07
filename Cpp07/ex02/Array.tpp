@@ -8,18 +8,20 @@ Array<T>::Array()
 }
 
 template <typename T>
-Array<T>::Array(unsigned int n) : _size(n) 
+Array<T>::Array(unsigned int n) : _array(NULL) , _size(n) 
 {
-    _array = new T[_size]();
+    if (n > 0)
+        _array = new T[_size]();
 }
 
 template <typename T>
 Array<T>::Array(const Array& other)
 {
     this->_size = other._size;   
-    this->_array = new T[_size]();
+    if(_size > 0)
+        this->_array = new T[_size]();
 
-    for (int i = 0; i < _size; i++)
+    for (unsigned int i = 0; i < _size; i++)
         this->_array[i] = other._array[i];
 }
 
@@ -39,7 +41,7 @@ Array<T>& Array<T>::operator=(const Array& other)
         this->_size = other._size;   
         this->_array = new T[_size]();
 
-        for (int i = 0; i < _size; i++)
+        for (unsigned int i = 0; i < _size; i++)
             this->_array[i] = other._array[i];
     }
     return *this;
@@ -54,16 +56,14 @@ unsigned int Array<T>::size() const
 template <typename T>
 T& Array<T>::operator[](unsigned int index) {
     
-    if (index >= _size) {
-        throw std::out_of_range("Indeks line out!");
-    }
+    if (index >= _size) 
+        throw std::out_of_range("Index out of bounds!");
     return _array[index];
 }
 
 template <typename T>
 const T& Array<T>::operator[](unsigned int index) const {
-    if (index >= _size) {
-        throw std::out_of_range("Indeks line out!");
-    }
+    if (index >= _size)
+        throw std::out_of_range("Index out of bounds!");
     return _array[index];
 }
