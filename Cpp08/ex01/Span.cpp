@@ -12,11 +12,8 @@ Span::Span(unsigned int n)
 
 Span::Span(const Span& other)
 {
-    if (this != &other)
-    {
-        this->_N = other._N;
-        this->_array = other._array;
-    }
+    this->_N = other._N;
+    this->_array = other._array;
 }
 
 Span::~Span()
