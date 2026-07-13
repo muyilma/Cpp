@@ -1,8 +1,8 @@
-NAME = easyfind
+NAME = btc
 
 CXX = c++
 CXXFLAGS =-std=c++98 -Wall -Wextra -Werror
-SRC = main.cpp  
+SRC = main.cpp BitcoinExchange.cpp
 OBJS = $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -13,7 +13,7 @@ $(NAME): $(OBJS)
 run: $(NAME)
 	make clean
 	clear
-	./$(NAME)
+	./$(NAME) input.txt
 
 leak:
 	valgrind ./$(NAME) 
