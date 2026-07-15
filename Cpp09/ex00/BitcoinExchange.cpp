@@ -91,7 +91,6 @@ bool BitcoinExchange::count_parser(const std::string& count_str, float& val)
     }
 
     char *endptr;
-    // İsteğin üzerine strtof kullanıldı
     float d_val = strtof(count_str.c_str(), &endptr);
 
     if (count_str.c_str() == endptr || *endptr != '\0') {
@@ -138,7 +137,6 @@ void BitcoinExchange::input_exec(std::string input)
         std::string date = line.substr(0, pipe_pos);
         std::string count = line.substr(pipe_pos + 1);
 
-// Boşlukları ve gizli \r karakterlerini temizle
         while (!date.empty() && (date[date.size() - 1] == ' ' || date[date.size() - 1] == '\t' || date[date.size() - 1] == '\r')) 
             date.erase(date.size() - 1);
         while (!date.empty() && (date[0] == ' ' || date[0] == '\t' || date[0] == '\r')) 
