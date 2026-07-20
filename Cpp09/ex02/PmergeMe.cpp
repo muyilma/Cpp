@@ -40,7 +40,7 @@ int value_parser(char *argv)
     return static_cast<int>(number);
 }
 
-void PmergeMe::parser(int argc,char **argv)
+void PmergeMe::_parser(int argc,char **argv)
 {
     bool single = false;
     if (argc <= 1)
@@ -57,19 +57,51 @@ void PmergeMe::parser(int argc,char **argv)
         int value = value_parser(*argv++);
         int value2 = value_parser(*argv++);
         if (value > value2)
-            vect.push_back(std::make_pair(value,value2));
+            _vect.push_back(std::make_pair(value,value2));
         else
-            vect.push_back(std::make_pair(value2,value));
+            _vect.push_back(std::make_pair(value2,value));
         argc -=2;
     }
-    int last;
+
+    int last ;
     if (single)
         last = value_parser(*argv);
+}
 
-    for (int i = 0; i < (int)vect.size(); i++)
-    {
-        std::cout << i << ": " <<vect[i].first << std::endl;
-        std::cout << i << ": "<< vect[i].second << std::endl;
+void PmergeMe::sort_vector(std::vector< std::pair<int, int> > &_vect)
+{
+
+    
+    if (_vect.size() <= 1)
+        return;
+
+    int mid = _vect.size() / 2;
+    std::vector< std::pair<int, int> > left(_vect.begin(), _vect.begin() + mid);
+    std::vector< std::pair<int, int> > right(_vect.begin() + mid, _vect.end());
+
+    sort_vector(left);
+    sort_vector(right);
+
+    size_t i = 0, j = 0, k = 0;
+    while (i < left.size() && j < right.size()) {
+        if (left[i].first <= right[j].first)
+            _vect[k++] = left[i++];
+        else
+            _vect[k++] = right[j++];
     }
-        std::cout << last << std::endl;    
+
+    while (i < left.size()) 
+        _vect[k++] = left[i++];
+    while (j < right.size()) 
+     _vect[k++] = right[j++];
+}
+
+
+void PmergeMe::run(int argc,char **argv)
+{
+    _parser(argc,argv);
+    sort_vector(_vect);
+
+    for (int i = 0; i < (int)_vect.size(); i++)
+        std::cout << _vect[i].first << std::endl;
 }

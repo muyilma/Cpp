@@ -1,7 +1,7 @@
 NAME = PmergeMe
 
 CXX = c++
-CXXFLAGS =-std=c++98 -Wall -Wextra -Werror
+CXXFLAGS =-std=c++98 -Wall -Wextra -Werror -g
 SRC = main.cpp PmergeMe.cpp
 OBJS = $(SRC:.cpp=.o)
 
@@ -13,10 +13,10 @@ $(NAME): $(OBJS)
 run: $(NAME)
 	make clean
 	clear
-	./$(NAME) "1 * 2 3 *"
+	./$(NAME) 5 4 2 6 3 1 33234 3412 3 21
 
 leak:
-	valgrind ./$(NAME) 
+	valgrind ./$(NAME) 5 4 2 6 3 1 33234 3412 3 21
 
 clean:
 	rm -rf $(OBJS)

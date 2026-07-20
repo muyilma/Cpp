@@ -6,7 +6,7 @@ int main(int argc, char **argv)
 
     try
     {
-         a.parser(argc, argv);
+        a.run(argc,argv);
     }
     catch(const std::exception& e)
     {

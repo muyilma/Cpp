@@ -10,15 +10,18 @@
 class PmergeMe
 {
     private:    
-        std::vector<std::pair<int,int> > vect;
-        std::deque<int> deq;
+        void _parser(int argc,char **argv);
+
+        std::vector<std::pair<int,int> > _vect;
+        std::deque<int> _deq;
     public:
         PmergeMe();
         ~PmergeMe();
         PmergeMe(const PmergeMe& other);
         PmergeMe& operator=(const PmergeMe& other);
 
-        void parser(int argc,char **argv);
+        void run(int argc,char **argv);
+        void sort_vector(std::vector< std::pair<int, int> > &_vect);
 };
 
 #endif
