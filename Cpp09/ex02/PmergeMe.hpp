@@ -22,6 +22,8 @@ class PmergeMe
 
         void run(int argc,char **argv);
         void sort_vector(std::vector< std::pair<int, int> > &_vect);
+        void sort_vect_jahnson(bool single, int last);
+        
 };
 
 #endif

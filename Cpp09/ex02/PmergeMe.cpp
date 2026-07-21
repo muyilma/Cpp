@@ -40,6 +40,50 @@ int value_parser(char *argv)
     return static_cast<int>(number);
 }
 
+void PmergeMe::sort_vect_jahnson(bool single, int last)
+{
+    std::vector<int> mainChain;
+    std::vector<int> pend;
+    
+    for (size_t i = 0; i < _vect.size(); i++)
+    {
+        mainChain.push_back(_vect[i].first); 
+        pend.push_back(_vect[i].second);    
+    }
+
+    if (!pend.empty())
+        mainChain.insert(mainChain.begin(), pend[0]);
+
+    int jPrev = 1;
+    int jCurr = 3;
+    int pend_size = pend.size();
+    std::vector<int>::iterator bound;
+    std::vector<int>::iterator pos;
+    
+    while (jPrev < pend_size)//21 30
+    {
+        int end = std::min(jCurr, pend_size) - 1;//43-30
+        int start = jPrev;//21
+
+        for (int i = end; i >= start; i--)
+        {
+            bound = std::find(mainChain.begin(), mainChain.end(), _vect[i].first);
+            pos = std::lower_bound(mainChain.begin(), bound, pend[i]);
+            mainChain.insert(pos, pend[i]);
+        }
+        int next = jCurr + 2 * jPrev;
+        jPrev = jCurr;
+        jCurr = next;
+    }
+    if (single)
+    {
+        pos = std::lower_bound(mainChain.begin(), mainChain.end(), last);
+        mainChain.insert(pos, last);
+    }
+    for (size_t i = 0; i < mainChain.size(); i++)
+        std::cout << mainChain[i] << " ";
+}
+
 void PmergeMe::_parser(int argc,char **argv)
 {
     bool single = false;
@@ -66,12 +110,12 @@ void PmergeMe::_parser(int argc,char **argv)
     int last ;
     if (single)
         last = value_parser(*argv);
+    sort_vector(_vect);
+    sort_vect_jahnson(single,last);
 }
 
 void PmergeMe::sort_vector(std::vector< std::pair<int, int> > &_vect)
 {
-
-    
     if (_vect.size() <= 1)
         return;
 
@@ -96,12 +140,8 @@ void PmergeMe::sort_vector(std::vector< std::pair<int, int> > &_vect)
      _vect[k++] = right[j++];
 }
 
-
 void PmergeMe::run(int argc,char **argv)
 {
     _parser(argc,argv);
-    sort_vector(_vect);
 
-    for (int i = 0; i < (int)_vect.size(); i++)
-        std::cout << _vect[i].first << std::endl;
 }
