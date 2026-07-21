@@ -6,7 +6,7 @@ BitcoinExchange::BitcoinExchange()
     
     if (!file.is_open()) {
         std::cerr << "Error: could not open database file => data.csv" << std::endl;
-        exit(EXIT_FAILURE); 
+        exit(1); 
     }
 
     std::string date;
@@ -40,24 +40,12 @@ BitcoinExchange::~BitcoinExchange()
 
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 {
-    if (this != &other)
-    {
+    if (this != &other){
        this->db = other.db;
     }
-    
     return *this;
 }
 
-
-void BitcoinExchange::dataPrint()
-{
-    std::map<std::string, float>::iterator it;
-
-
-    for (it = db.begin(); it != db.end(); ++it) {
-        std::cout << "Tarih: " << it->first << " | Fiyat: " << it->second << std::endl;
-    }
-}
 bool BitcoinExchange::date_parser(const std::string& date)
 {
     if (date.length() != 10 || date[4] != '-' || date[7] != '-') {
@@ -117,7 +105,7 @@ void BitcoinExchange::input_exec(std::string input)
     
     if (!file.is_open()) {
         std::cerr << "Error: could not open input file => " << input << std::endl;
-        exit(EXIT_FAILURE); 
+        exit(1); 
     }
     std::string line;
 
@@ -164,6 +152,7 @@ void BitcoinExchange::input_exec(std::string input)
         
         --it; 
         float exchange_rate = it->second;
-    std::cout << date << " => " << count << " = " << (countf * exchange_rate) << std::endl;    }
+    std::cout << date << " => " << count << " = " << (countf * exchange_rate) << std::endl;    
+    }
     file.close();
 }

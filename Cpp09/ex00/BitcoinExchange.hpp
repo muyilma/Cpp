@@ -17,7 +17,6 @@ class BitcoinExchange
         BitcoinExchange(const BitcoinExchange& other);
         BitcoinExchange& operator=(const BitcoinExchange& other);
 
-        void dataPrint();
         void input_exec(std::string input);
         bool count_parser(const std::string& count_str, float& val);
         bool date_parser(const std::string& date);
