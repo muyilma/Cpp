@@ -180,12 +180,7 @@ void PmergeMe::run(int argc,char **argv)
     if (argc <= 1)
         throw std::out_of_range("Error");
 
-    std::cout << "Before: ";
-    for (int i = 1; i < argc; i++) {
-        std::cout << argv[i] << " ";
-    }
-    std::cout << std::endl;
-    
+    int tmp = argc;    
     bool single = false;
     int original_argc = argc - 1;
 
@@ -232,7 +227,11 @@ void PmergeMe::run(int argc,char **argv)
     
     gettimeofday(&end, NULL);   
     time_deq = (end.tv_sec - start.tv_sec) * 1000000L + (end.tv_usec - start.tv_usec);
-
+    std::cout << "Before: ";
+    for (int i = 1; i < tmp; i++) {
+        std::cout << argv[i] << " ";
+    }
+    std::cout << std::endl;
     std::cout << "After: ";
     for (size_t i = 0; i < sorted_vect.size(); i++) {
         std::cout << sorted_vect[i] << " ";
