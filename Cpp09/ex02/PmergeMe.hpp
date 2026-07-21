@@ -6,11 +6,11 @@
 #include <iostream>
 #include <algorithm>
 #include <stdexcept>
+#include <sys/time.h>
 
 class PmergeMe
 {
     private:    
-        void _parser(int argc,char **argv);
 
         std::vector<std::pair<int, int> > _vect;
         std::deque<std::pair<int, int> > _deq;
@@ -26,10 +26,11 @@ class PmergeMe
         void run(int argc,char **argv);
         
         void sort_vector(std::vector< std::pair<int, int> > &_vect);
-        void sort_vect_jahnson(bool single, int last);
+        std::vector<int> sort_vect_jahnson(bool single, int last);
+        
         
         void sort_deque(std::deque< std::pair<int, int> > &_vect);
-        void sort_deq_jahnson(bool single, int last);
+        std::deque<int> sort_deq_jahnson(bool single, int last);
 };
 
 #endif
