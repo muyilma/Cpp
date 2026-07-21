@@ -20,7 +20,76 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& other)
     return *this;
 }
 
-int value_parser(char *argv)
+void PmergeMe::sort_deque(std::deque< std::pair<int, int> > &_deq){
+    if (_deq.size() <= 1)
+        return;
+
+    int mid = _deq.size() / 2;
+    std::deque< std::pair<int, int> > left(_deq.begin(), _deq.begin() + mid);
+    std::deque< std::pair<int, int> > right(_deq.begin() + mid, _deq.end());
+
+    sort_deque(left);
+    sort_deque(right);
+
+    size_t i = 0, j = 0, k = 0;
+    while (i < left.size() && j < right.size()) {
+        if (left[i].first <= right[j].first)
+            _deq[k++] = left[i++];
+        else
+            _deq[k++] = right[j++];
+    }
+
+    while (i < left.size()) 
+        _deq[k++] = left[i++];
+    while (j < right.size()) 
+     _deq[k++] = right[j++];
+}
+
+void PmergeMe::sort_deq_jahnson(bool single, int last){
+
+ std::deque<int> mainChain;
+    std::deque<int> pend;
+    
+    for (size_t i = 0; i < _vect.size(); i++)
+    {
+        mainChain.push_back(_vect[i].first); 
+        pend.push_back(_vect[i].second);    
+    }
+
+    if (!pend.empty())
+        mainChain.insert(mainChain.begin(), pend[0]);
+
+    int jPrev = 1;
+    int jCurr = 3;
+    int pend_size = pend.size();
+    std::deque<int>::iterator bound;
+    std::deque<int>::iterator pos;
+    
+    while (jPrev < pend_size)
+    {
+        int end = std::min(jCurr, pend_size) - 1;
+        int start = jPrev;
+
+        for (int i = end; i >= start; i--)
+        {
+            bound = std::find(mainChain.begin(), mainChain.end(), _vect[i].first);
+            pos = std::lower_bound(mainChain.begin(), bound, pend[i]);
+            mainChain.insert(pos, pend[i]);
+        }
+        int next = jCurr + 2 * jPrev;
+        jPrev = jCurr;
+        jCurr = next;
+    }
+    if (single)
+    {
+        pos = std::lower_bound(mainChain.begin(), mainChain.end(), last);
+        mainChain.insert(pos, last);
+    }
+    for (size_t i = 0; i < mainChain.size(); i++)
+        std::cout << mainChain[i] << " ";
+}
+
+int PmergeMe::value_parser(char *argv)
 {
     if (!argv || argv[0] == '\0')
         throw std::out_of_range("Error");
@@ -60,10 +129,10 @@ void PmergeMe::sort_vect_jahnson(bool single, int last)
     std::vector<int>::iterator bound;
     std::vector<int>::iterator pos;
     
-    while (jPrev < pend_size)//21 30
+    while (jPrev < pend_size)
     {
-        int end = std::min(jCurr, pend_size) - 1;//43-30
-        int start = jPrev;//21
+        int end = std::min(jCurr, pend_size) - 1;
+        int start = jPrev;
 
         for (int i = end; i >= start; i--)
         {
@@ -101,9 +170,15 @@ void PmergeMe::_parser(int argc,char **argv)
         int value = value_parser(*argv++);
         int value2 = value_parser(*argv++);
         if (value > value2)
+        {
             _vect.push_back(std::make_pair(value,value2));
+            _deq.push_back(std::make_pair(value,value2));
+        }
         else
+        {
             _vect.push_back(std::make_pair(value2,value));
+            _deq.push_back(std::make_pair(value2,value));
+        }
         argc -=2;
     }
 
@@ -112,6 +187,10 @@ void PmergeMe::_parser(int argc,char **argv)
         last = value_parser(*argv);
     sort_vector(_vect);
     sort_vect_jahnson(single,last);
+    std::cout << std::endl;
+    sort_deque(_deq);
+    sort_deq_jahnson(single,last);
+
 }
 
 void PmergeMe::sort_vector(std::vector< std::pair<int, int> > &_vect)
